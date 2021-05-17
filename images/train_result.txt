@@ -1,0 +1,1082 @@
+C:\Users\Chengjinpei\Anaconda3\envs\ccf_ner\python.exe F:/5.Github项目代码/11.Python深度学习/chapter8/CCF_ner/train_fine_tune.py
+GPU ID:  0
+Model Type:  bilstm
+Fine Tune Learning Rate:  5e-05
+Data dir:  F:/5.Github项目代码/11.Python深度学习/chapter8/data/process_data/
+Pretrained Model Vocab:  F:/5.Github项目代码/11.Python深度学习/chapter8/data/pretrained_model/BERT/vocab.txt
+bilstm embedding  256
+use original bert  True
+{'汭', '锎', '猢', 'R', '俰', '茆', '旳', '`', 'V', '犰', '姤', '戝', '铧', '蚨', 'C', '犇', '邴', '咑', 'A', '芘', '戋', '钅', '锛', 'N', '跶', '谡', '劼', '浡', '骟', '綉', 'S', '叕', '狲', '魑', '郯', 'G', '鐜', '鎸', '屃', '瀵', '荑', 'T', '嶶', '翀', 'E', '罝', '睚', '鸱', '閞', 'M', 'X', '鐢', '瘜', '瑧', '笪', '锞', '玎', '猊', '椴', '铗', '捭', '瘕', 'I', 'F', '鑱', '歃', '狴', '骝', '鍙', '屼', '愠', '螭', '祼', '撺', '閮', '讠', 'O', '亻', '魉', '檩', '赟', '嗮', '“', '谝', '讣', '茀', '’', 'L', '椱', '靊', '浐', '曁', '褴', '‘', '龉', '簰', '鍒', 'D', '旂', '呭', '氺', '狻', 'U', '毖', '庒', '㈠', '叒', '塱', '幤', '寳', '菥', '疄', '铱', '姇', '貹', '囵', '槊', '燚', '莳', '忔', '聃', '嗾', '镚', '佺', 'P', '媖', '\ue40a', 'Q', 'W', '铖', '殚', '祹', '诓', '辔', '斲', '渼', '茕', '暍', '劖', 'Y', 'Z', '勮', '睍', 'K', '圪', '噃', '犴', 'H', '缁', 'B', '帀', '跬', '涜', '鹆', '”', '鸃', 'J', '雬', '釆', '嚚', '龃', '亓', '綯', '莜', '梿', '楒'}
+8012
+GET!!
+{'锎', 'E', 'Q', 'L', 'W', '’', '靊', 'R', 'M', '浐', 'X', 'V', '‘', '緈', 'Y', 'Z', 'C', 'K', 'I', 'F', 'A', 'D', 'H', 'B', '桭', '歀', 'N', 'O', 'S', '”', 'U', '尓', 'J', 'G', '“', '烎', 'T', '諨', 'P'}
+1105
+2021-05-12 13:24:40.926713: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+2021-05-12 13:24:41.051353: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: GeForce GTX 1660 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.59
+pciBusID: 0000:01:00.0
+totalMemory: 6.00GiB freeMemory: 5.04GiB
+2021-05-12 13:24:41.051745: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0
+2021-05-12 13:24:41.467931: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-05-12 13:24:41.468097: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 
+2021-05-12 13:24:41.468193: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N 
+2021-05-12 13:24:41.468403: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1660 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+  name = bert/embeddings/word_embeddings:0, shape = (21128, 768), *INIT_FROM_CKPT*
+  name = bert/embeddings/token_type_embeddings:0, shape = (2, 768), *INIT_FROM_CKPT*
+  name = bert/embeddings/position_embeddings:0, shape = (512, 768), *INIT_FROM_CKPT*
+  name = bert/embeddings/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/embeddings/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_0/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_1/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_2/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_3/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_4/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_5/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_6/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_7/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_8/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_9/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_10/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/encoder/layer_11/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+  name = bert/pooler/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+  name = bert/pooler/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+  name = layer_logit0/kernel:0, shape = (768, 1)
+  name = layer_logit0/bias:0, shape = (1,)
+  name = layer_logit1/kernel:0, shape = (768, 1)
+  name = layer_logit1/bias:0, shape = (1,)
+  name = layer_logit2/kernel:0, shape = (768, 1)
+  name = layer_logit2/bias:0, shape = (1,)
+  name = layer_logit3/kernel:0, shape = (768, 1)
+  name = layer_logit3/bias:0, shape = (1,)
+  name = layer_logit4/kernel:0, shape = (768, 1)
+  name = layer_logit4/bias:0, shape = (1,)
+  name = layer_logit5/kernel:0, shape = (768, 1)
+  name = layer_logit5/bias:0, shape = (1,)
+  name = layer_logit6/kernel:0, shape = (768, 1)
+  name = layer_logit6/bias:0, shape = (1,)
+  name = layer_logit7/kernel:0, shape = (768, 1)
+  name = layer_logit7/bias:0, shape = (1,)
+  name = layer_logit8/kernel:0, shape = (768, 1)
+  name = layer_logit8/bias:0, shape = (1,)
+  name = layer_logit9/kernel:0, shape = (768, 1)
+  name = layer_logit9/bias:0, shape = (1,)
+  name = layer_logit10/kernel:0, shape = (768, 1)
+  name = layer_logit10/bias:0, shape = (1,)
+  name = layer_logit11/kernel:0, shape = (768, 1)
+  name = layer_logit11/bias:0, shape = (1,)
+init bert from checkpoint: F:/5.Github项目代码/11.Python深度学习/chapter8/data/pretrained_model/BERT/bert_model.ckpt
+self.embed_dense_dim: 768
+(?, ?, 768)
+Run Model Type: bilstm
+WARNING:tensorflow:From C:\Users\Chengjinpei\Anaconda3\envs\ccf_ner\lib\site-packages\tensorflow\python\ops\rnn.py:430: calling reverse_sequence (from tensorflow.python.ops.array_ops) with seq_dim is deprecated and will be removed in a future version.
+Instructions for updating:
+seq_dim is deprecated, use seq_axis instead
+WARNING:tensorflow:From C:\Users\Chengjinpei\Anaconda3\envs\ccf_ner\lib\site-packages\tensorflow\python\util\deprecation.py:454: calling reverse_sequence (from tensorflow.python.ops.array_ops) with batch_dim is deprecated and will be removed in a future version.
+Instructions for updating:
+batch_dim is deprecated, use batch_axis instead
+bert train variable num: 199
+normal train variable num: 53
+C:\Users\Chengjinpei\Anaconda3\envs\ccf_ner\lib\site-packages\tensorflow\python\ops\gradients_impl.py:108: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+word2vec trainable!!
+bert only!
+Writing to F:\5.Github项目代码\11.Python深度学习\chapter8\data\model\runs_0\1620797096
+
+1it [00:11, 11.18s/it]step 1, loss 1465.7004 lr 0.00010
+11it [00:32,  2.19s/it]step 11, loss 195.2458 lr 0.00010
+21it [00:53,  2.04s/it]step 21, loss 240.3827 lr 0.00010
+30it [01:12,  2.12s/it]step 31, loss 179.1147 lr 0.00010
+41it [01:34,  2.03s/it]step 41, loss 55.6273 lr 0.00010
+51it [01:56,  2.18s/it]step 51, loss 44.0554 lr 0.00010
+60it [02:14,  2.07s/it]step 61, loss 41.6641 lr 0.00010
+71it [02:37,  2.14s/it]step 71, loss 64.3748 lr 0.00010
+81it [02:59,  2.13s/it]step 81, loss 51.4860 lr 0.00010
+90it [03:17,  1.99s/it]step 91, loss 32.8217 lr 0.00010
+101it [03:41,  2.22s/it]step 101, loss 84.0181 lr 0.00010
+110it [04:00,  2.17s/it]step 111, loss 25.5787 lr 0.00010
+121it [04:23,  2.04s/it]step 121, loss 20.7622 lr 0.00010
+130it [04:41,  1.99s/it]step 131, loss 41.3696 lr 0.00010
+141it [05:04,  2.12s/it]step 141, loss 33.8944 lr 0.00010
+150it [05:21,  1.91s/it]step 151, loss 37.5122 lr 0.00010
+161it [05:44,  2.00s/it]step 161, loss 74.4854 lr 0.00010
+170it [06:02,  1.97s/it]step 171, loss 20.0867 lr 0.00010
+181it [06:23,  2.06s/it]step 181, loss 72.4174 lr 0.00010
+190it [06:42,  2.10s/it]step 191, loss 11.5663 lr 0.00010
+201it [07:05,  2.02s/it]step 201, loss 51.0806 lr 0.00010
+211it [07:26,  2.17s/it]step 211, loss 8.0978 lr 0.00010
+221it [07:48,  2.14s/it]step 221, loss 15.4741 lr 0.00010
+230it [08:06,  2.06s/it]step 231, loss 13.7247 lr 0.00010
+240it [08:27,  2.11s/it]step 241, loss 23.6470 lr 0.00010
+250it [08:48,  2.07s/it]step 251, loss 28.9457 lr 0.00010
+261it [09:11,  2.17s/it]step 261, loss 33.7990 lr 0.00010
+271it [09:32,  2.07s/it]step 271, loss 24.4332 lr 0.00010
+281it [09:54,  2.20s/it]step 281, loss 37.1029 lr 0.00010
+290it [10:10,  1.91s/it]step 291, loss 12.8331 lr 0.00010
+301it [10:33,  2.11s/it]step 301, loss 13.3495 lr 0.00010
+310it [10:53,  2.16s/it]step 311, loss 76.9441 lr 0.00010
+320it [11:14,  2.15s/it]step 321, loss 24.4807 lr 0.00010
+331it [11:37,  1.99s/it]step 331, loss 38.8097 lr 0.00010
+341it [11:57,  2.11s/it]step 341, loss 50.6979 lr 0.00010
+350it [12:16,  2.02s/it]step 351, loss 17.3501 lr 0.00010
+361it [12:39,  1.92s/it]step 361, loss 24.9312 lr 0.00010
+371it [13:00,  2.08s/it]step 371, loss 68.4865 lr 0.00010
+381it [13:21,  2.10s/it]step 381, loss 49.9812 lr 0.00010
+391it [13:40,  1.87s/it]step 391, loss 30.5824 lr 0.00010
+401it [14:01,  2.05s/it]step 401, loss 71.6143 lr 0.00010
+410it [14:20,  2.02s/it]step 411, loss 18.8606 lr 0.00010
+420it [14:41,  2.15s/it]step 421, loss 36.6433 lr 0.00010
+431it [15:04,  2.11s/it]step 431, loss 19.2437 lr 0.00010
+441it [15:24,  1.98s/it]step 441, loss 12.9143 lr 0.00010
+451it [15:45,  2.09s/it]step 451, loss 25.3861 lr 0.00010
+461it [16:06,  2.12s/it]step 461, loss 13.2145 lr 0.00010
+471it [16:26,  2.07s/it]step 471, loss 8.9316 lr 0.00010
+480it [16:45,  2.09s/it]step 481, loss 31.3909 lr 0.00010
+490it [17:06,  2.11s/it]step 491, loss 33.3386 lr 0.00010
+501it [17:29,  2.06s/it]step 501, loss 26.4072 lr 0.00010
+511it [17:50,  2.00s/it]step 511, loss 75.3240 lr 0.00010
+521it [18:11,  2.13s/it]step 521, loss 54.5544 lr 0.00010
+531it [18:32,  2.14s/it]step 531, loss 11.6514 lr 0.00010
+540it [18:51,  2.11s/it]step 541, loss 40.5257 lr 0.00010
+550it [19:12,  2.14s/it]step 551, loss 61.1603 lr 0.00010
+560it [19:33,  2.11s/it]step 561, loss 38.8850 lr 0.00010
+571it [19:56,  2.14s/it]step 571, loss 30.6959 lr 0.00010
+581it [20:18,  2.20s/it]step 581, loss 15.5616 lr 0.00010
+591it [20:39,  2.12s/it]step 591, loss 8.0190 lr 0.00010
+601it [21:00,  2.06s/it]step 601, loss 18.4302 lr 0.00010
+610it [21:19,  2.15s/it]step 611, loss 152.7984 lr 0.00010
+621it [21:42,  2.10s/it]step 621, loss 23.4513 lr 0.00010
+630it [22:01,  2.06s/it]step 631, loss 57.0371 lr 0.00010
+641it [22:24,  2.16s/it]step 641, loss 88.2593 lr 0.00010
+651it [22:45,  2.02s/it]step 651, loss 30.2922 lr 0.00010
+661it [23:06,  2.11s/it]step 661, loss 16.5037 lr 0.00010
+671it [23:27,  2.10s/it]step 671, loss 31.1610 lr 0.00010
+680it [23:44,  1.92s/it]step 681, loss 31.6536 lr 0.00010
+690it [24:06,  2.13s/it]step 691, loss 9.4136 lr 0.00010
+700it [24:27,  2.14s/it]step 701, loss 23.6489 lr 0.00010
+710it [24:47,  2.04s/it]step 711, loss 18.5474 lr 0.00010
+721it [25:10,  2.14s/it]step 721, loss 8.5288 lr 0.00010
+731it [25:30,  2.07s/it]step 731, loss 38.5087 lr 0.00010
+741it [25:51,  2.18s/it]step 741, loss 183.9131 lr 0.00010
+751it [26:10,  2.06s/it]step 751, loss 14.5004 lr 0.00010
+760it [26:29,  2.11s/it]step 761, loss 11.4827 lr 0.00010
+771it [26:51,  2.07s/it]step 771, loss 23.2703 lr 0.00010
+780it [27:11,  2.20s/it]step 781, loss 44.2253 lr 0.00010
+791it [27:35,  2.19s/it]step 791, loss 9.1823 lr 0.00010
+801it [27:57,  2.13s/it]step 801, loss 11.0984 lr 0.00010
+811it [28:19,  2.30s/it]step 811, loss 31.1031 lr 0.00010
+821it [28:41,  2.20s/it]step 821, loss 24.5161 lr 0.00010
+831it [29:01,  2.10s/it]step 831, loss 51.4868 lr 0.00010
+841it [29:22,  1.87s/it]step 841, loss 5.0813 lr 0.00010
+851it [29:42,  2.04s/it]step 851, loss 18.8948 lr 0.00010
+861it [30:03,  2.04s/it]step 861, loss 21.2094 lr 0.00010
+871it [30:23,  2.12s/it]step 871, loss 150.3025 lr 0.00010
+881it [30:43,  1.82s/it]step 881, loss 11.1716 lr 0.00010
+891it [31:04,  2.08s/it]step 891, loss 24.6794 lr 0.00010
+901it [31:24,  2.11s/it]step 901, loss 33.5410 lr 0.00010
+911it [31:46,  2.19s/it]step 911, loss 13.6364 lr 0.00010
+921it [32:08,  2.17s/it]step 921, loss 43.5120 lr 0.00010
+931it [32:29,  2.11s/it]step 931, loss 64.9253 lr 0.00010
+941it [32:49,  2.12s/it]step 941, loss 19.9315 lr 0.00010
+951it [33:08,  1.94s/it]step 951, loss 46.0927 lr 0.00010
+961it [33:30,  2.13s/it]step 961, loss 40.6814 lr 0.00010
+971it [33:52,  2.22s/it]step 971, loss 26.2610 lr 0.00010
+981it [34:14,  2.26s/it]step 981, loss 44.2849 lr 0.00010
+991it [34:36,  2.26s/it]step 991, loss 25.5905 lr 0.00010
+1000it [34:55,  2.10s/it]step 1001, loss 17.3588 lr 0.00010
+1010it [35:15,  2.13s/it]step 1011, loss 27.1498 lr 0.00010
+1021it [35:40,  2.21s/it]step 1021, loss 8.7694 lr 0.00010
+1031it [36:02,  2.18s/it]step 1031, loss 17.5793 lr 0.00010
+1041it [36:23,  2.07s/it]step 1041, loss 2.6885 lr 0.00010
+1051it [36:44,  2.13s/it]step 1051, loss 27.2858 lr 0.00010
+1061it [37:04,  1.86s/it]step 1061, loss 67.0062 lr 0.00010
+1070it [37:23,  2.02s/it]step 1071, loss 17.7618 lr 0.00010
+1080it [37:44,  2.13s/it]step 1081, loss 108.9657 lr 0.00010
+1090it [38:05,  2.16s/it]step 1091, loss 29.9164 lr 0.00010
+1101it [38:28,  1.90s/it]step 1101, loss 20.1465 lr 0.00010
+1111it [38:49,  2.00s/it]step 1111, loss 17.2876 lr 0.00010
+1120it [39:08,  2.12s/it]step 1121, loss 60.2366 lr 0.00010
+1131it [39:31,  2.08s/it]step 1131, loss 65.5607 lr 0.00010
+1141it [39:52,  1.95s/it]step 1141, loss 18.7877 lr 0.00010
+1151it [40:12,  2.05s/it]step 1151, loss 61.2050 lr 0.00010
+1160it [40:30,  2.08s/it]step 1161, loss 56.8802 lr 0.00010
+1170it [40:52,  2.15s/it]step 1171, loss 27.3877 lr 0.00010
+1181it [41:15,  2.13s/it]step 1181, loss 127.9294 lr 0.00010
+1191it [41:36,  2.20s/it]step 1191, loss 33.9739 lr 0.00010
+1201it [41:56,  1.72s/it]step 1201, loss 3.8884 lr 0.00010
+1211it [42:18,  2.16s/it]step 1211, loss 49.5709 lr 0.00010
+1221it [42:37,  1.84s/it]step 1221, loss 11.9079 lr 0.00010
+1231it [43:00,  2.21s/it]step 1231, loss 7.7041 lr 0.00010
+1241it [43:19,  1.87s/it]step 1241, loss 9.8281 lr 0.00010
+1250it [43:39,  2.29s/it]step 1251, loss 21.0580 lr 0.00010
+1260it [44:01,  2.19s/it]step 1261, loss 8.7640 lr 0.00010
+1271it [44:25,  2.09s/it]step 1271, loss 40.2838 lr 0.00010
+1281it [44:45,  2.04s/it]step 1281, loss 13.2980 lr 0.00010
+1290it [45:05,  2.21s/it]step 1291, loss 21.6404 lr 0.00010
+1301it [45:30,  2.25s/it]step 1301, loss 4.7954 lr 0.00010
+1311it [45:52,  2.33s/it]step 1311, loss 10.7239 lr 0.00010
+1321it [46:14,  2.29s/it]step 1321, loss 20.3965 lr 0.00010
+1331it [46:36,  1.99s/it]step 1331, loss 60.7993 lr 0.00010
+1341it [46:56,  2.12s/it]step 1341, loss 42.8854 lr 0.00010
+1351it [47:17,  2.04s/it]step 1351, loss 41.6311 lr 0.00010
+1361it [47:39,  2.19s/it]step 1361, loss 6.0517 lr 0.00010
+1371it [48:02,  2.24s/it]step 1371, loss 32.3562 lr 0.00010
+1381it [48:24,  2.19s/it]step 1381, loss 37.9191 lr 0.00010
+1390it [48:44,  2.30s/it]step 1391, loss 42.3977 lr 0.00010
+1400it [49:06,  2.25s/it]step 1401, loss 28.0408 lr 0.00010
+1411it [49:32,  2.30s/it]step 1411, loss 29.2539 lr 0.00010
+1421it [49:53,  1.99s/it]step 1421, loss 47.4008 lr 0.00010
+1430it [50:12,  2.19s/it]step 1431, loss 5.1826 lr 0.00010
+1441it [50:33,  2.10s/it]step 1441, loss 25.3427 lr 0.00010
+1451it [50:53,  1.99s/it]step 1451, loss 22.7505 lr 0.00010
+1461it [51:12,  1.96s/it]step 1461, loss 18.5583 lr 0.00010
+1471it [51:32,  1.91s/it]step 1471, loss 19.6428 lr 0.00010
+1481it [51:53,  2.01s/it]step 1481, loss 57.5944 lr 0.00010
+1491it [52:13,  1.94s/it]step 1491, loss 34.7488 lr 0.00010
+1501it [52:35,  2.25s/it]step 1501, loss 37.9053 lr 0.00010
+1511it [52:56,  2.04s/it]step 1511, loss 61.8120 lr 0.00010
+1520it [53:16,  2.41s/it]step 1521, loss 13.4542 lr 0.00010
+1531it [53:41,  2.20s/it]step 1531, loss 39.1318 lr 0.00010
+1541it [54:04,  2.40s/it]step 1541, loss 33.2997 lr 0.00010
+1551it [54:27,  2.23s/it]step 1551, loss 20.3130 lr 0.00010
+1561it [54:49,  2.02s/it]step 1561, loss 44.2184 lr 0.00010
+1571it [55:09,  2.01s/it]step 1571, loss 81.5782 lr 0.00010
+1581it [55:31,  2.05s/it]step 1581, loss 42.2888 lr 0.00010
+1591it [55:53,  2.19s/it]step 1591, loss 43.9185 lr 0.00010
+1601it [56:15,  2.14s/it]step 1601, loss 13.2242 lr 0.00010
+1611it [56:36,  2.04s/it]step 1611, loss 13.2118 lr 0.00010
+1621it [56:56,  2.15s/it]step 1621, loss 18.1904 lr 0.00010
+1630it [57:17,  2.31s/it]step 1631, loss 18.6254 lr 0.00010
+1641it [57:42,  2.36s/it]step 1641, loss 23.1260 lr 0.00010
+1651it [58:03,  2.08s/it]step 1651, loss 27.7863 lr 0.00010
+1661it [58:25,  2.08s/it]step 1661, loss 6.0829 lr 0.00010
+1671it [58:45,  1.98s/it]step 1671, loss 4.5283 lr 0.00010
+1680it [59:05,  2.24s/it]step 1681, loss 5.7500 lr 0.00010
+1691it [59:29,  2.18s/it]step 1691, loss 20.0896 lr 0.00010
+1701it [59:50,  2.12s/it]step 1701, loss 15.3560 lr 0.00010
+1711it [1:00:13,  2.44s/it]step 1711, loss 30.5502 lr 0.00010
+1721it [1:00:37,  2.37s/it]step 1721, loss 21.4287 lr 0.00010
+1731it [1:00:58,  1.91s/it]step 1731, loss 3.9279 lr 0.00010
+1741it [1:01:21,  2.14s/it]step 1741, loss 57.5745 lr 0.00010
+1750it [1:01:42,  2.23s/it]step 1751, loss 3.5721 lr 0.00010
+1761it [1:02:04,  1.94s/it]step 1761, loss 5.7877 lr 0.00010
+1770it [1:02:25,  2.31s/it]step 1771, loss 50.6787 lr 0.00010
+1781it [1:02:48,  2.21s/it]step 1781, loss 8.9736 lr 0.00010
+1791it [1:03:12,  2.42s/it]step 1791, loss 111.6879 lr 0.00010
+1801it [1:03:32,  2.22s/it]step 1801, loss 17.6013 lr 0.00010
+1811it [1:03:52,  2.09s/it]step 1811, loss 23.9143 lr 0.00010
+1821it [1:04:13,  2.20s/it]step 1821, loss 6.3821 lr 0.00010
+1831it [1:04:34,  1.96s/it]step 1831, loss 42.0243 lr 0.00010
+1841it [1:04:55,  2.04s/it]step 1841, loss 22.2576 lr 0.00010
+1851it [1:05:18,  2.30s/it]step 1851, loss 39.2189 lr 0.00010
+1860it [1:05:39,  2.31s/it]step 1861, loss 7.1999 lr 0.00010
+1871it [1:06:04,  2.27s/it]step 1871, loss 17.6167 lr 0.00010
+1881it [1:06:27,  2.29s/it]step 1881, loss 6.7341 lr 0.00010
+1891it [1:06:49,  2.23s/it]step 1891, loss 28.7435 lr 0.00010
+1901it [1:07:11,  2.19s/it]step 1901, loss 36.2471 lr 0.00010
+1911it [1:07:32,  2.14s/it]step 1911, loss 25.3141 lr 0.00010
+1921it [1:07:53,  2.09s/it]step 1921, loss 66.7800 lr 0.00010
+1931it [1:08:15,  2.15s/it]step 1931, loss 12.8964 lr 0.00010
+1940it [1:08:35,  2.17s/it]step 1941, loss 30.2565 lr 0.00010
+1950it [1:08:55,  1.93s/it]step 1951, loss 11.6520 lr 0.00010
+1961it [1:09:19,  2.17s/it]step 1961, loss 9.3303 lr 0.00010
+1971it [1:09:39,  2.04s/it]step 1971, loss 43.6775 lr 0.00010
+1981it [1:09:59,  2.04s/it]step 1981, loss 58.7391 lr 0.00010
+1991it [1:10:20,  2.02s/it]step 1991, loss 91.2245 lr 0.00010
+2001it [1:10:42,  2.15s/it]step 2001, loss 14.7670 lr 0.00010
+2011it [1:11:04,  2.25s/it]step 2011, loss 29.3975 lr 0.00010
+2021it [1:11:27,  2.28s/it]step 2021, loss 93.5997 lr 0.00010
+2030it [1:11:46,  2.19s/it]step 2031, loss 18.7960 lr 0.00010
+2041it [1:12:09,  2.15s/it]step 2041, loss 20.6394 lr 0.00010
+2051it [1:12:31,  2.01s/it]step 2051, loss 8.6857 lr 0.00010
+2061it [1:12:52,  1.92s/it]step 2061, loss 20.5444 lr 0.00010
+2071it [1:13:13,  2.11s/it]step 2071, loss 23.2158 lr 0.00010
+2081it [1:13:34,  2.05s/it]step 2081, loss 21.4052 lr 0.00010
+2091it [1:13:56,  2.12s/it]step 2091, loss 71.4196 lr 0.00010
+2101it [1:14:16,  2.10s/it]step 2101, loss 23.3826 lr 0.00010
+2111it [1:14:37,  2.00s/it]step 2111, loss 135.5383 lr 0.00010
+2120it [1:14:54,  1.87s/it]step 2121, loss 6.6138 lr 0.00010
+2131it [1:15:17,  2.01s/it]step 2131, loss 18.1628 lr 0.00010
+2141it [1:15:38,  2.14s/it]step 2141, loss 9.4073 lr 0.00010
+2151it [1:15:58,  2.06s/it]step 2151, loss 35.2585 lr 0.00010
+2161it [1:16:19,  2.06s/it]step 2161, loss 29.9639 lr 0.00010
+2171it [1:16:40,  1.91s/it]step 2171, loss 16.7225 lr 0.00010
+2181it [1:17:00,  2.10s/it]step 2181, loss 32.5880 lr 0.00010
+2191it [1:17:22,  2.17s/it]step 2191, loss 17.5563 lr 0.00010
+2200it [1:17:40,  2.06s/it]step 2201, loss 25.2959 lr 0.00010
+2211it [1:18:03,  2.05s/it]step 2211, loss 43.2742 lr 0.00010
+2221it [1:18:24,  2.10s/it]step 2221, loss 48.1981 lr 0.00010
+2231it [1:18:44,  2.08s/it]step 2231, loss 51.4927 lr 0.00010
+2241it [1:19:05,  2.12s/it]step 2241, loss 36.9296 lr 0.00010
+2251it [1:19:25,  2.02s/it]step 2251, loss 29.9805 lr 0.00010
+2261it [1:19:47,  2.12s/it]step 2261, loss 33.4880 lr 0.00010
+2271it [1:20:07,  1.77s/it]step 2271, loss 30.2355 lr 0.00010
+2281it [1:20:28,  2.10s/it]step 2281, loss 35.2808 lr 0.00010
+2291it [1:20:48,  2.15s/it]step 2291, loss 17.8879 lr 0.00010
+2301it [1:21:09,  2.06s/it]step 2301, loss 12.0292 lr 0.00010
+2311it [1:21:30,  2.11s/it]step 2311, loss 20.2365 lr 0.00010
+2321it [1:21:50,  2.01s/it]step 2321, loss 38.1808 lr 0.00010
+2330it [1:22:08,  2.01s/it]step 2331, loss 30.9559 lr 0.00010
+2341it [1:22:30,  1.93s/it]step 2341, loss 8.2247 lr 0.00010
+2350it [1:22:48,  2.06s/it]step 2351, loss 45.3712 lr 0.00010
+2361it [1:23:10,  1.83s/it]step 2361, loss 33.9960 lr 0.00010
+2371it [1:23:28,  2.07s/it]step 2371, loss 55.0121 lr 0.00010
+2380it [1:23:46,  1.86s/it]step 2381, loss 37.6996 lr 0.00010
+2391it [1:24:10,  2.09s/it]step 2391, loss 67.1738 lr 0.00010
+2401it [1:24:30,  1.95s/it]step 2401, loss 62.7097 lr 0.00010
+2410it [1:24:48,  2.07s/it]step 2411, loss 22.9689 lr 0.00010
+2421it [1:25:10,  2.09s/it]step 2421, loss 40.9265 lr 0.00010
+2430it [1:25:28,  2.04s/it]step 2431, loss 35.5402 lr 0.00010
+2441it [1:25:51,  2.07s/it]step 2441, loss 34.9965 lr 0.00010
+2451it [1:26:11,  2.03s/it]step 2451, loss 30.1531 lr 0.00010
+2461it [1:26:31,  1.77s/it]step 2461, loss 16.1789 lr 0.00010
+2471it [1:26:52,  2.05s/it]step 2471, loss 133.6071 lr 0.00010
+2481it [1:27:14,  2.12s/it]step 2481, loss 21.2472 lr 0.00010
+2491it [1:27:35,  2.17s/it]step 2491, loss 52.7888 lr 0.00010
+2500it [1:27:54,  2.12s/it]step 2501, loss 15.4187 lr 0.00010
+2511it [1:28:17,  2.15s/it]step 2511, loss 31.6360 lr 0.00010
+2521it [1:28:39,  2.07s/it]step 2521, loss 62.7711 lr 0.00010
+2531it [1:28:58,  2.04s/it]step 2531, loss 35.0056 lr 0.00010
+2541it [1:29:20,  2.16s/it]step 2541, loss 19.7411 lr 0.00010
+2551it [1:29:42,  2.23s/it]step 2551, loss 37.2664 lr 0.00010
+2560it [1:30:01,  2.17s/it]step 2561, loss 45.2629 lr 0.00010
+2571it [1:30:24,  2.06s/it]step 2571, loss 35.5453 lr 0.00010
+2580it [1:30:43,  2.08s/it]step 2581, loss 14.3142 lr 0.00010
+2591it [1:31:05,  2.05s/it]step 2591, loss 21.5069 lr 0.00010
+2601it [1:31:27,  2.23s/it]step 2601, loss 24.7903 lr 0.00010
+2611it [1:31:48,  2.03s/it]step 2611, loss 200.0240 lr 0.00010
+2621it [1:32:09,  2.11s/it]step 2621, loss 13.6332 lr 0.00010
+2631it [1:32:29,  2.04s/it]step 2631, loss 6.5021 lr 0.00010
+2640it [1:32:46,  2.05s/it]step 2641, loss 32.9823 lr 0.00010
+2651it [1:33:08,  2.02s/it]step 2651, loss 8.3516 lr 0.00010
+2661it [1:33:29,  2.05s/it]step 2661, loss 6.2535 lr 0.00010
+2671it [1:33:51,  2.12s/it]step 2671, loss 4.7251 lr 0.00010
+2681it [1:34:12,  2.15s/it]step 2681, loss 69.5319 lr 0.00010
+2691it [1:34:32,  2.07s/it]step 2691, loss 18.2756 lr 0.00010
+2701it [1:34:54,  2.09s/it]step 2701, loss 22.8496 lr 0.00010
+2711it [1:35:15,  2.09s/it]step 2711, loss 13.3950 lr 0.00010
+2720it [1:35:34,  2.07s/it]step 2721, loss 15.7275 lr 0.00010
+2730it [1:35:52,  1.89s/it]step 2731, loss 14.6146 lr 0.00010
+2740it [1:36:14,  2.15s/it]step 2741, loss 19.9312 lr 0.00010
+2751it [1:36:36,  1.89s/it]step 2751, loss 25.8420 lr 0.00010
+2761it [1:36:55,  2.02s/it]step 2761, loss 16.1824 lr 0.00010
+2770it [1:37:13,  2.02s/it]step 2771, loss 51.8206 lr 0.00010
+2781it [1:37:35,  2.04s/it]step 2781, loss 23.1598 lr 0.00010
+2791it [1:37:55,  2.03s/it]step 2791, loss 34.1904 lr 0.00010
+2801it [1:38:14,  1.94s/it]step 2801, loss 19.3070 lr 0.00010
+2811it [1:38:34,  1.88s/it]step 2811, loss 67.7681 lr 0.00010
+2821it [1:38:53,  1.73s/it]step 2821, loss 6.2351 lr 0.00010
+2831it [1:39:14,  2.09s/it]step 2831, loss 18.6034 lr 0.00010
+2840it [1:39:33,  2.02s/it]step 2841, loss 34.9110 lr 0.00010
+2850it [1:39:54,  2.13s/it]step 2851, loss 66.2028 lr 0.00010
+2861it [1:40:16,  1.79s/it]step 2861, loss 25.8651 lr 0.00010
+2870it [1:40:34,  2.00s/it]step 2871, loss 6.5385 lr 0.00010
+2881it [1:40:58,  2.14s/it]step 2881, loss 45.9014 lr 0.00010
+2891it [1:41:18,  2.11s/it]step 2891, loss 44.3556 lr 0.00010
+2900it [1:41:38,  2.14s/it]step 2901, loss 19.7107 lr 0.00010
+2911it [1:41:59,  1.89s/it]step 2911, loss 17.5352 lr 0.00010
+2920it [1:42:17,  1.99s/it]step 2921, loss 23.7684 lr 0.00010
+2931it [1:42:41,  2.18s/it]step 2931, loss 31.4104 lr 0.00010
+2941it [1:43:01,  1.82s/it]step 2941, loss 29.1202 lr 0.00010
+2951it [1:43:21,  1.98s/it]step 2951, loss 29.5947 lr 0.00010
+2961it [1:43:42,  2.17s/it]step 2961, loss 13.6228 lr 0.00010
+2971it [1:44:03,  2.01s/it]step 2971, loss 27.2585 lr 0.00010
+2981it [1:44:25,  2.10s/it]step 2981, loss 16.0278 lr 0.00010
+2991it [1:44:45,  2.09s/it]step 2991, loss 2.6268 lr 0.00010
+3001it [1:45:06,  2.06s/it]step 3001, loss 18.1053 lr 0.00010
+3011it [1:45:25,  2.04s/it]step 3011, loss 5.3625 lr 0.00010
+3021it [1:45:45,  1.94s/it]step 3021, loss 10.9824 lr 0.00010
+3031it [1:46:06,  2.07s/it]step 3031, loss 10.4247 lr 0.00010
+3041it [1:46:27,  2.02s/it]step 3041, loss 26.3277 lr 0.00010
+3051it [1:46:48,  2.14s/it]step 3051, loss 50.1416 lr 0.00010
+3061it [1:47:07,  1.97s/it]step 3061, loss 10.3819 lr 0.00010
+3071it [1:47:28,  2.02s/it]step 3071, loss 38.5936 lr 0.00010
+3081it [1:47:48,  2.00s/it]step 3081, loss 27.1091 lr 0.00010
+3091it [1:48:10,  2.17s/it]step 3091, loss 25.5437 lr 0.00010
+3101it [1:48:32,  2.18s/it]step 3101, loss 35.9653 lr 0.00010
+3111it [1:48:51,  2.08s/it]step 3111, loss 41.7972 lr 0.00010
+3121it [1:49:12,  2.09s/it]step 3121, loss 85.0918 lr 0.00010
+3131it [1:49:34,  2.17s/it]step 3131, loss 18.1554 lr 0.00010
+3141it [1:49:55,  2.14s/it]step 3141, loss 19.1118 lr 0.00010
+3151it [1:50:16,  2.17s/it]step 3151, loss 11.3011 lr 0.00010
+3161it [1:50:37,  2.07s/it]step 3161, loss 33.2697 lr 0.00010
+3171it [1:50:56,  1.97s/it]step 3171, loss 78.9695 lr 0.00010
+3180it [1:51:12,  1.73s/it]step 3181, loss 5.8192 lr 0.00010
+3191it [1:51:36,  2.13s/it]step 3191, loss 12.4434 lr 0.00010
+3201it [1:51:56,  2.01s/it]step 3201, loss 57.6740 lr 0.00010
+3211it [1:52:17,  2.15s/it]step 3211, loss 33.4515 lr 0.00010
+3221it [1:52:38,  2.06s/it]step 3221, loss 26.9943 lr 0.00010
+3230it [1:52:57,  2.14s/it]step 3231, loss 28.6873 lr 0.00010
+3240it [1:53:18,  2.18s/it]step 3241, loss 6.1831 lr 0.00010
+3251it [1:53:41,  2.10s/it]step 3251, loss 10.8933 lr 0.00010
+3261it [1:54:01,  2.07s/it]step 3261, loss 18.9172 lr 0.00010
+3271it [1:54:22,  2.01s/it]step 3271, loss 9.2112 lr 0.00010
+3281it [1:54:42,  1.94s/it]step 3281, loss 20.3129 lr 0.00010
+3291it [1:55:03,  2.10s/it]step 3291, loss 63.7762 lr 0.00010
+3301it [1:55:23,  2.17s/it]step 3301, loss 5.1993 lr 0.00010
+3311it [1:55:45,  2.07s/it]step 3311, loss 34.6553 lr 0.00010
+3321it [1:56:05,  2.15s/it]step 3321, loss 33.0713 lr 0.00010
+3331it [1:56:26,  2.02s/it]step 3331, loss 76.7217 lr 0.00010
+3341it [1:56:47,  2.15s/it]step 3341, loss 10.5287 lr 0.00010
+3351it [1:57:08,  2.16s/it]step 3351, loss 6.8074 lr 0.00010
+3360it [1:57:26,  2.01s/it]step 3361, loss 9.0458 lr 0.00010
+3371it [1:57:48,  2.12s/it]step 3371, loss 38.2163 lr 0.00010
+3381it [1:58:09,  2.07s/it]step 3381, loss 22.4904 lr 0.00010
+3391it [1:58:31,  2.17s/it]step 3391, loss 19.5859 lr 0.00010
+3400it [1:58:50,  2.14s/it]step 3401, loss 5.4129 lr 0.00010
+3410it [1:59:10,  2.15s/it]step 3411, loss 6.8364 lr 0.00010
+3420it [1:59:30,  2.08s/it]step 3421, loss 5.8464 lr 0.00010
+3431it [1:59:53,  1.93s/it]step 3431, loss 24.5126 lr 0.00010
+3441it [2:00:14,  2.15s/it]step 3441, loss 18.2849 lr 0.00010
+3451it [2:00:35,  2.13s/it]step 3451, loss 9.9604 lr 0.00010
+3461it [2:00:55,  2.09s/it]step 3461, loss 10.6416 lr 0.00010
+3471it [2:01:15,  1.87s/it]step 3471, loss 1.7718 lr 0.00010
+3481it [2:01:36,  2.04s/it]step 3481, loss 32.1299 lr 0.00010
+3491it [2:01:57,  2.10s/it]step 3491, loss 79.4313 lr 0.00010
+3501it [2:02:17,  1.91s/it]step 3501, loss 28.8656 lr 0.00010
+3511it [2:02:38,  2.07s/it]step 3511, loss 18.1998 lr 0.00010
+3521it [2:02:59,  2.19s/it]step 3521, loss 27.6088 lr 0.00010
+3531it [2:03:20,  2.13s/it]step 3531, loss 79.3807 lr 0.00010
+3541it [2:03:40,  2.07s/it]step 3541, loss 55.5978 lr 0.00010
+3551it [2:04:01,  2.09s/it]step 3551, loss 15.2739 lr 0.00010
+3561it [2:04:22,  2.05s/it]step 3561, loss 20.6564 lr 0.00010
+3571it [2:04:42,  2.01s/it]step 3571, loss 37.1292 lr 0.00010
+3580it [2:05:00,  2.03s/it]step 3581, loss 24.6368 lr 0.00010
+3591it [2:05:21,  2.07s/it]step 3591, loss 27.8667 lr 0.00010
+3601it [2:05:42,  2.17s/it]step 3601, loss 18.9646 lr 0.00010
+3610it [2:06:02,  2.14s/it]step 3611, loss 63.9094 lr 0.00010
+3621it [2:06:24,  2.02s/it]step 3621, loss 39.8588 lr 0.00010
+3631it [2:06:46,  2.24s/it]step 3631, loss 9.4198 lr 0.00010
+3641it [2:07:06,  2.02s/it]step 3641, loss 5.0137 lr 0.00010
+3651it [2:07:26,  1.86s/it]step 3651, loss 2.4281 lr 0.00010
+3661it [2:07:46,  2.04s/it]step 3661, loss 26.6165 lr 0.00010
+3670it [2:08:04,  1.89s/it]step 3671, loss 10.4905 lr 0.00010
+3681it [2:08:25,  1.94s/it]step 3681, loss 8.1602 lr 0.00010
+3690it [2:08:44,  2.11s/it]step 3691, loss 6.3667 lr 0.00010
+3701it [2:09:07,  2.04s/it]step 3701, loss 11.2213 lr 0.00010
+3711it [2:09:27,  1.98s/it]step 3711, loss 51.1105 lr 0.00010
+3721it [2:09:48,  1.99s/it]step 3721, loss 19.7672 lr 0.00010
+3730it [2:10:06,  2.13s/it]step 3731, loss 17.3818 lr 0.00010
+3741it [2:10:29,  2.14s/it]step 3741, loss 6.7612 lr 0.00010
+3751it [2:10:50,  2.11s/it]step 3751, loss 25.6495 lr 0.00010
+3761it [2:11:10,  2.03s/it]step 3761, loss 35.0204 lr 0.00010
+3771it [2:11:30,  2.17s/it]step 3771, loss 25.3639 lr 0.00010
+3781it [2:11:52,  2.10s/it]step 3781, loss 24.1359 lr 0.00010
+3791it [2:12:13,  2.15s/it]step 3791, loss 18.2290 lr 0.00010
+3801it [2:12:33,  2.09s/it]step 3801, loss 40.4813 lr 0.00010
+3811it [2:12:52,  1.87s/it]step 3811, loss 18.4562 lr 0.00010
+3821it [2:13:13,  2.07s/it]step 3821, loss 25.8098 lr 0.00010
+3831it [2:13:34,  2.09s/it]step 3831, loss 26.0223 lr 0.00010
+3840it [2:13:53,  2.09s/it]step 3841, loss 41.1684 lr 0.00010
+3851it [2:14:16,  2.09s/it]step 3851, loss 50.2200 lr 0.00010
+3861it [2:14:37,  2.13s/it]step 3861, loss 20.9199 lr 0.00010
+3871it [2:14:58,  2.07s/it]step 3871, loss 15.1427 lr 0.00010
+3881it [2:15:19,  2.16s/it]step 3881, loss 292.6871 lr 0.00010
+3890it [2:15:37,  2.08s/it]step 3891, loss 15.0581 lr 0.00010
+3901it [2:16:00,  2.10s/it]step 3901, loss 8.6141 lr 0.00010
+3911it [2:16:21,  2.14s/it]step 3911, loss 45.5159 lr 0.00010
+3920it [2:16:40,  2.07s/it]step 3921, loss 7.4514 lr 0.00010
+3931it [2:17:01,  1.98s/it]step 3931, loss 4.6041 lr 0.00010
+3940it [2:17:20,  2.08s/it]step 3941, loss 12.3596 lr 0.00010
+3951it [2:17:42,  2.08s/it]step 3951, loss 109.7544 lr 0.00010
+3960it [2:18:01,  2.17s/it]step 3961, loss 93.0730 lr 0.00010
+3971it [2:18:24,  2.09s/it]step 3971, loss 36.8765 lr 0.00010
+3981it [2:18:46,  2.13s/it]step 3981, loss 59.2510 lr 0.00010
+3991it [2:19:05,  2.00s/it]step 3991, loss 17.9355 lr 0.00010
+4001it [2:19:26,  2.13s/it]step 4001, loss 23.0548 lr 0.00010
+4006it [2:19:36,  2.09s/it]
+553it [02:43,  3.39it/s]
+1105
+1105
+['lonshi，;ICEDATA;朋致国际;易信在线;丰盛金融;恩圣威NCY;中华50;中华300;德国DAX;中北选买;MORSE;中北选;艾克国际;中远期货;威海中元天颐;威海中元·天颐;微豪配资;新源财经;日经指数;中元天颐;m·all商·城;股期权;中北选买股期权;恒辉证券;嘉晟财富;新纪元期货;高达集团;新纪·元期货;UXEL优信外汇;佳升金服;香港珑金集团;速汇国际', '中·首策略;中·首上;恒利金业;s·s·ma·ll商城;MT5;中·首投资集团;元期服;世纪金业;东吴金服;KkG商城', '红橙优选;中北选买', '明星梯队', '易信;中北选买', '', '', '', '和平影视;富二贷;中鼎金服;中鼎国服', '宁波XX物流有限公;中鼎国服;中鼎国服（宁波）信息技术中心', '中星财行;鱼米金服;金储宝;牛伯伯;聚胜财富;中科金服;小狗钱钱;和平影视;上海和平影视;中鼎国服', '富二贷', '惠嘉家装宝（;Gone;小牛在线;小诺理财', '聚宝普惠;爱投资;沙小僧;信用宝', '抱财网;富润尚美（;米缸金融;理想宝）;前海理想金融（;闲钱宝;易通贷;银湖网;前海理想金融;沙小僧;金信网', '富万代', '外汇宝', '汇财通', '中中国外汇交易中心;iDealFX;中国外汇交易中心', '中金所;上期所', '', '', '微商之家', '6GHz;9GHz;5G联创财富基金', '5G联创财富', '5G联创财富', '中源诚信（北京）资产管理有限公司;恩力集昌;康汉投资;中源诚信）;深圳恩力集昌基金管理有限公司;康汉投资）;康汉投资管理（北京）有限公司;中源诚信', '融通宝;中恒策略', '中恒策略', '中厚融合;中厚理财', '北京诺伊投资有限公司', '中江信托', '中金福投资', '中金摩根', '香港信托;加裕智倍保;中金摩根', '中金摩根', '中聚明投', '中聚明投', '惠嘉家装宝（;车邦贷;小诺理财', '中联亿配', '中龙创想', '中龙创想', '中龙创想', '中南信达金融理财;中南信达金融', '中能国际', '中能国际', '中富民信;中融民信;民信贷;蓟县民信;民信金控;ME金融', '中融民信;民信贷', '中融民信;民信贷;创利投;易人金服;东勇鸽舍信;泓曲金融;鑫时光;互投金融', '索星金服;陆金服;点融网;爱当宝;广信贷;铂诺理财;正道金服;和信贷;凤凰金融;向上金服;懒财金服;简理财', '中富民信;中融民信;民信贷;民信金控;ME金融', '中融民信;民信贷', '汇淘金;易投杭;零星宝;积幂金服;信融财富;中融民信民信贷;盛世汇海;金投手;融金所;旭财网;中融民信;台得隆;立马理财;国美金融;巨如众吧;来财街;微易贷;鲸亿集团;壹万木投资;云联惠;综财投资;鲸明理财;美易理财;巨如意;巨和宝;币优铺;通宝金服;安维茂;中融民信现;慧融财富;中新金服;红金所;惠人贷;华人金控;金疙瘩;亿宝贷;信美投资;鸿融网;五载寻梦金猫在线;善林金融', '雄信投资;草根投资;中融民信）;鼎珍投资;首创投资;易羊金融;乐驰金服;武宝投资;君享金融;雪莲花国资;中科金服;红运金服;大圣理财;ME金融', '中瑞财讯', '恒牛策略;海慧通;海南大宗商品;白象国际;恒利金业;CITIGLOBAL花旗国际;富通国际;鼎盈信投;信融期权;信邦策略;宏源国际;九梦财富;海.贝国际;中赢国际EGML环球金融;鸿运信投;众元国际;国人策略;艾斯国际;博迈在线;bitkoc德林资本;世纪金业;HATSKY;金源财富;mrt捷盈资本;旭升策略;新源财经;优信外汇;东财国际;JTL国际;海利国际;宏观策略;britrading;汇丰联合;创昇国际;嘉晟财富;SpeedTrad速汇国际;HDI国际;汇融国际。;诺安期货;万鼎国际;CXM希盟;合欣国际;聚富策略;长虹资本;东吴金服;辉立国际', '中瑞财讯', '中瑞财讯', '', '中首投资', '中首投资', '', '团子贷豹;曹操贷省呗mo9;中银消费;玖富万卡;八戒荷包小象优品大路', '酷骑(北京)科技有限公司;酷骑;酷骑单车', '酷骑（北京）科技有限公司;酷骑单车', '酷骑单车', '酷骑', '北京捷越联合', '北京捷越联合;捷越联合', '齐乐融融E', '金钥匙期权;中信华睿;万宝期权', '中信华睿', '中信华睿', '鑫配资;MALAFY;格林期货;WIRECADD;致富配资;CFX圆汇;鼎盈信投;信邦策略;信融期权;弘基金融;多乾国际;鸿运信投;万荣国际;美原油;丰讯凯国际;久联优配;安明团队;环球金融;金田策略;安信金控;福盛期权;杜德配资;银岛配资;安明amwq;世纪金业;HATSKY;信溢国际;货币兑;中信华睿;金多多配资;沪深3;恒指期货;中阳期货;宏观策略;百益策略;华安策略;涵星配资;合欣国际;EGML;罗宾智投;鼎泽配资;天臣配资;速达国际;Helong和隆;领.', '中盈财富', '中盈财富;中盈宝A', '创期国投', '广州西勃商品交易中心;撮合网;鸿运信投;海南大宗商品交易中心;吉金内期行;尚志市贸易大宗商品交易;安信金控;天裕金宝;信融期权;百益策略;权金汇;川商联宗商品交易中心;海期财富;赛岳恒配资;信宜盈;信邦策略;鼎盈信投;长江期货;弘基金融;POFX亚太', '领航配资;金瑞信通;东吴金服（;MRT捷盈资本;ICEDATA;元银汇宝;百达资本;贵州国际商品交易中心;信邦策略;诚信配资;佳银融资融券;大连商品交易所;汇融国际;策略吧;仁赞资讯;IOAEX平台;百盛国际;瑞骏策略?;牛弘配资;中远期货;南昌期财;新源财经;中信华睿;华远国际;策略资本;高盛融资融券;百益策略;友泽经纪;环海陆港交易所;FINCI;方正国际;明道配资、;知富期货（;东方财经;中讯策略;稳赢策略;聚富策略;富成配资;艾利威国际;中首上上之策;盛赢期服;鼎泽配资;粒子金融;众生策略;天元策略', '高朋外汇', 'BTC;Eminer', 'Eminer;Token;OKEx交易所', '路易泽;帝普森国际;FDEX;万銮国际;BVB;禦和弘;时盛财汇;鸿本策略;中信之星;阿尔泰;VANTLER;安心国际;金山金融', '权棕琛;禦和弘', 'DGINT;沪港商;智慧策略;恒源帝国;亿享会;鼎众金融;牛期权;irstrade;中信金服;零染配资际;南洋国际;犀牛配资;优投策略;SAKIM;豪资随配;福盈泰科技;USGFX;聚赢国际;阿尔泰;九鼎金策;东照资本;九梦财富;方道配资;AUSGLBAL;天天策略;沪深融;安信金控;ISINEX;沪盈通在线;顺发配资;009配资;非常赢家;嵘创信投;东方汇金;牛气冲天配资;鼎盛国际;鼎展金业;VANTLER;德睿期权;万银国际;ROMAND;金山金融;弘业国际;宝利配资;金融汇;众昇策略;爱彩乐;期货大赢家;金钥匙;菲特尔国际;Hnsonsz;红方位;金蝉财经;福汇;科泰宝;华宇环亚;韵腾商城中心;震泰国际;港商通宏琳策略;大智慧略;安心国际;bitkoc;快赢、;港汇国际;CRM;神灯策略;盈股策略;路易泽;sinewex;资生网;CALWFX;CAIWFX;XSCOIN;时盛财汇;鸿本策略;OGM;普罗汇;鼎泽配资;钱掌柜配资;汇丰鸿利;天元策略;宝盈交易', '众汇外汇', '黑资管;众汇外汇', '', '众牧宝理财;众牧宝', 'ljqzhuimen;众人帮', 'MBI;榴莲币;华克金;mti;MTI', 'MBI;榴莲币;华克金;MFC;MTI', '盘界币圈', '互融宝;小小理财;高新普惠;摇财树;蜂涌理财;安心贷;开金所;阿朋贷;有米贷', '蜂涌理财', '袋鼠妈妈', '点滴身边;花果金融;橙旗贷;E人一铺;中鼎国服;Logo', '水母云交易', '水母云交易', 'TradeMax;ARRIVALTradeMax', 'TradeMax;New', 'TradeMax', 'TradeMax;ARRIVALTradeMax', 'TradeMax', 'TradeMax', 'TOP.ONE;TOP.ONE交易所;TOP.ONEDEC', '', '重庆南岸区', '王老吉吉悠', '吉悠', '', '', '', '', '周转宝盒', '周转宝盒', '周转信箱', '周转信箱', '捷信;融360', '百度金融;蚂蚁花呗;携程拿去花和唯品花;小米金融;京东白条', '珠海金创实业有限公司', '', 'YouBank', '两橙科技）;上海两橙信息科技有限公司（;跃吉科技）;上海造艺网络科技有限公司;上海跃吉网络科技有限公司（;造艺科技）', '米花包;造艺科技;荷宝包;去借保;银码头;网贷侠;趣豆钱;纳纳钱包;豹子贷;猎钱宝', '造艺科技;银码头;豹子贷', '造艺科技;跃吉科技;两橙科技', '造艺科技', '造艺科技', '久而信;厚朴金控;普惠理财', '中国莱信;中国莱信】', 'IGOFX;一盛金融', 'IGOFX', '嘉丰瑞德', '鸿昇国际', '河南智汇魔方科技股份有限公;河南智汇魔方科技股份有限公司;智汇魔方', '智汇魔方', '铸博皇御环球金融;铸博皇御MT5', '筑家在线', '筑家在线', '筑家在线', '天猫优品;天猫优品零售门店', '天猫优品;天猫优品零售', '咖啡之翼', '咖啡之翼', '咖啡之翼', '咖啡之翼', '龙盈理财;新盈”理财;增薪盈;慧盈”理财;家和盈;增盈”理财', '家和盈;增薪盈;龙盈理财', '普信金服', '普信金服', '经纬大学堂;POFX', '', '龙支付;珍爱网;分期乐', '三陆金所;兴业证券;麻袋财富;华西证券;东方证券;桔子理财;国信证券;华泰证券', '蓝晶社', '蓝晶社', '蓝晶社', '蓝晶社', '4魔力', '粉红豹', '蓝晶社;花生日记;粉象生活', '蓝晶社', '', '蓝晶社', '生猪交易;牧芽ERP;牧芽科技', '牧芽科技', '西安金控;B2B;西安浐灞商务中心;B2B贸易金融', '中金珠宝', '鸿运信投;卓润财经;百益策略;创昇国际;、九梦财富;众生策略', '', '卓润财经', '国信资产;沈阳嘉汇投资咨询有限;智诚安环;沈阳国信资产管理有限', '弘山财富', '弘山财富', '子龙文化链UTMZ;子龙文化', '子龙文化链UTMZ;子龙文化;子龙文化链', '国金中融公司;IPO上市', '上海拓影', '省钱小宝;花生日记', '省钱小宝', '省钱小宝', '', '省钱小宝', '惠嘉家装宝（;Fujikoshi;小诺理财', '亿融普惠', '仓储金铺', '钻石分期;上海亮昕网络科技有限公', '', '祈星祈星;绣夫人', '钻石分期', '钻石分期', '钻石分期', '', '钻石分期', '钻石分期', '上海盈樱网络科技有限公司;小樱桃商城;上海序欢信息科技有限公司;小樱桃', '小樱桃商城;小樱桃', '福莱币（;福莱币;火币网;FDC(;比特币;福莱币FDC;以太币', '陀螺财经;中联合创', '大河生活;大河生活卡;华泰证券', '金猪下崽', '红杉资本;金猪下崽;金猪下', '金猪下崽;金猪下载', '金猪银猪;金猪下崽;金猪', '金猪下猪崽', 'Masternode;SUQA', 'ASIC和FPGA;ASIC和;SUQA', 'USDT;LiBaiDrunk;瀚方创投许量;SUQA', '盈宝通', '懒财网;INS', '懒财网;懒财宝', '懒财网;懒财宝', '', '宇驰瑞德', '青岛中天资产管理中心;泉州天仁贸易;中弘瑞鑫;北京明尚时刻;蓝巨投资;韬蕴资本', '懒财网带;新疆峰石;中安百联', '懒财网;懒财宝', '懒财宝', '安通控股', '同花顺', '同花顺', '雅虎链;雅虎链YahooChain', 'HOT乾生金矿;粉丝天下;金源宝;钱结通;枸杞乐园;IAC;黑鹅城堡;商界云商币YSB;大唐天下;渔人码头;安徽三金;共享财富;云联惠;UDE;FIFAPALY..;HDB恒大币;兵道集团;幸运蛙;爱心汇;绝世仙果;义国汇;OAC币绿洲资产;全民养狗;璀璨家园', '京东酷卖', '借卖网;悟空单车', 'ofo和摩拜;优库速购;悟空单车', '梦想矿场;倍富链', '微粒贷;借呗;嘉联立刷;嘉联支付;立贷', '河南万卡;POS;河南万卡支付信息技术有限公司', 'Plustoken', 'Plustoken;PlusToken', 'Plustoken', 'Plustoken网络;Plustoken;OKEx交易所', '派派猪理财', '互金跟投', '安徽六安长源;安徽六安长源置业有限公', '安徽六安长源置业有限公司', 'PPmoney网贷', 'PPmoney网贷', '有米金融;蚂蚁花呗;微粒贷;好借钱;招联好期贷;蚂蚁借呗', '来分期;淘钱宝', '堡垒投资', '堡垒投资集团;堡垒投资', '黑石集团;堡垒投资集团;堡垒投资', '瑞波币', '比特币;以太币;领域王国;莱特币', '芒果金融', '芒果金融', '芒果金融', '芒果金融', '尊安益;尊安益财富', '尊安益财富', '尊安益;尊安益财富', '鹰速润滑油经销有限公司', 'Cointelegra;VVBTC;PeterSchiff;SERO;Schiff;BTC/USDT;比特币;PeterSchiff与;Pompliano在CNBCAfrica', 'bitFlyer;币世界;BTC;Pompliano;比特币;ETH', '陀螺财经;Enumivoisdead（;ENU;Ethereum;AidenPearce;Enumivo;证书宝;数联中国;比特币;联合UDAP;Enumi', 'HyperPay;NULS;QTUM;HyperPay钱包;PoS矿池;ETH;HyperPay链下', '甩甩宝宝', '甩甩宝宝', '甩甩宝宝', '甩甩宝宝', '甩甩宝宝;苏宁易购', '焕商;焕呗', '焕商;焕呗', '焕呗易货;焕商;焕呗', '焕商;焕呗;焕呗易货', '焕商', '海汇国际;卓德集团', '', '卓德CEO', '海汇国际', '海汇国际', '海汇国际', '海汇国际', '', '海汇保险', '海汇国际', 'NAME;CHP城市猎人;CHP', 'CHP城市猎人;CHP城市猎人达姐', 'CHP城市猎人达;CHP城市猎人', '佳乐商城', 'Plustoken钱包;plustoken;Plustoken;PlusToken', '比特币', 'bitmex', '马克币;生态币', '滴滴出行', '汝州万汇城', '裕吉国际mt4', '大東方国际商品交易集团;新富金融;恒通国际微交易;股王配资;鑫汇环球;众融众投;DBC币', 'tfyforex;信融#;震泰国际;中航期货;ainol艾诺;joso聚硕;国峰贵金属', '恒信环球投资;恒信集团', 'svsfx;神谷策略;tf环球金融;花旗证券;高盛融资融券;策略资本;股赢家;金惠配资;gzc创投;fhex;未来资本', '', '比特币;多米诺', '芒果电单车', '欧年宝;福天下云商城;云联惠;江苏联宝;万协云商', '欧年宝;福天下云商城;云联惠;万协云商;江苏联宝，', '时时彩', '德普凯信', '全球购', '环球信贷;大长江集团;环球信;夸客金融;豪爵控股;江门摩托大亨大长江集团', '四川易通天下', '莱汇币;亚欧币;维卡币;GCB光彩币;比特币;万福币;暗黑币;EGD网络', '洋钱罐;国美金融', '西安金控', '玉茶坊;易通创客;康满堂', '', ';天使投资;江苏人才创投联盟;江苏人才创新创业路演中心;&nbsp', 'ca认证中心;internet上', '天世纪金融', '博创兴业', '吉祥币', '华军合创', '币付宝', '领峰外汇', 'yielan', '艾特币', 'xm信托', 'CFEX&LK', '艾拓思', '尚亚财富', '人人赚;人人投资', '广汇莱茵庄园', 'CBT兄弟币;OBT欧比特', '', '&amp', '', '优凯集团', '', '', 'Jumo', '雷达币', '易到用车', '银登中心;河北省金融租赁有限公司;河北金租', '我爱卡', '蜂蚁链', '吉林省吉晨投资有限公司;吉林省吉东方金融信息咨询服务有限公司;吉鑫贷', 'POS', '万福币', '远大期货', '赚币网', '', '云数贸', '比特币;比特易', 'macd', 'CCTV;HFGFX;masong', '易到', 'plustoken;火币otc', 'capstone凯石集团', 'creativeassembly;apex', 'DCRC币', 'eightcap易汇;followme交易;followme', 'plustoken钱包', 'rakuten乐天证券', 'SWIFTgpiInstant;SWIFT;zdnet', 'tri拓利', '安币交易所', '小俊逸', '', '臣要金】;臣要金', '现代财产保险(中国)有限公司;联想控股;安联保险;中国人寿', '聚币;太一云;亦来云;行云运动;币多宝;ICO有火币网;ETChain;保全网;区块宝;OKCoin;Achain;ICO;BTCC;NEM', '聚币;太一云;亦来云;行云运动;币多宝;ICO有火币网;ETChain;保全网;区块宝;OKCoin;Achain;ICO;BTCC;NEM', '吉汇时代', '亚太中心', '刷脸支付;绿信集团', 'ggtrade金石集团', 'stdforex', 'svsfx;svssecuritiesplc', '中泰跨境全球购', 'Upbit;howmuch.net', '嘉盛国际;微交易', '云交易倍;微交易;易通国际', '微交易;维币国际', '易信环球微交易', '邮政金融', 'lgdisplay;oled', 'realtimefutures', '筑金先生', '', '', 'mcc互转;mcc;mcc社区;mcc电商', '', '金荣中国;forexangus埃格斯;ruishuo;琥珀帝国;千恒国际;恒利金业;xze;maketmattersfx);遵道国际;向日葵;恒兴贵金属;rdcfx;金盛金融;瞳盛国际;ouxlimited(;高晟金业;docfx;玖泽国际;效业国际;菲特尔国际;中汇富;limited;寰宇国际;hk;星亘国际;锐菱创汇;炒黄金外汇;昆仑国际;真宝金融集团;oux;春峰金融;中国金业;香港富盈国际;凯特金融;fft;金富国际金融;maket;大赢家期货;恒信贵金属;欧克斯;奇米金融', '', 'forexfs点cn', '维仕担保有限公司;维仕金融', 'CPLE;CPLE币', '富鸿国际', '乐购商城', '广汇能源', '利通国际', '威翰地产', 'GTS;GTS集团', '口袋外汇', '东方万汇城', '雷达币', 'mt4', '橙子信用;蘑菇信用;91管家;小赢卡贷;yoki生活', '青橙单车', '易票联', '恩圣威NCY', 'cmb日息', 'ca国际金融互助社区', '首易信支付', 'ironfx', '中华币;中兴同寿', '优尚生活网络商城;优尚乐购商城;全程猫网络商城', '中华币', 'FXWPD;盈凯国际;昆仑国际', '诺和', '恺英网络;宁波恺英互联网小额贷款有限公司', '嘉誉投资', '金十数据', '天汇金融', '国通信托;湖北金融租赁;湖北消费金融', '比特世界', '富银融资', '恒信环球', '雷达币', '聚汇天下', 'mtrading纵海金融;asic', '', '360金融', '', '', '福建盛世通宝网络科技有限公司', '趣游链;ieo币;afxgc;信达国际;lgc莱格币;恒源国际vsa拆分盘', '彩虹学院', '51天天乐购', '智选天下', '69马克币', '78.;华军合创', '广州瑞丰集团股份有限公司', '9m单车', '百川币', 'acl', 'afxgc外汇平台', 'aim', 'aitoken', 'algomaster', 'Android外汇交易宝', 'angelfx外汇交易商', 'apjfx', 'arnofx', 'asnfx', 'atfx黄金期货', 'ATFX', 'AUS澳汇资本', 'becho', 'bedafx百达汇', 'bedrockforex', 'bfx', 'bitkeep', 'Bitmarket.ph', 'bmfn博美', 'bmfn博美外汇', 'brt房地产信托', 'cambridgeglobalpayments;stephencasey', 'ca信托上海融创', '草根互助;诚信复利;车房时代;诚信999;长城币;藏宝网航海币;CF慈善;CMB东盟国际;CMB阿川商事金融互助平台;CEC中国华人俱乐部;诚信复利理财;慈行天下;财富海纳;CB亚投行香港集团公司（关网）', '德国bafin;cmcmarkets;加拿大fcac', 'com;Copyright', '青岛鼎汇投资管理有限公司', 'ecntrade', 'ecn外汇;ecn', 'okex交易所', 'eightcap澳洲易汇', 'excoin', 'f8coin', 'fclforex', '', 'fomoso', '币安交易所;Fowin', 'fxabm外汇平台', 'fxbtg金融集团', 'fxbtg', 'fxdeed', 'gaex盖世', '莱汇币;EGD网络黄金;万福币;GCB光彩币;暗黑币', '火币交易所;GenesisVision', 'gpp', 'gs小额信贷银行', 'gwfx金道环球', 'IGOFX;MIXG', 'JetProfit快盈集团', 'kng易投', 'manbetx', 'max外汇交易', 'h5时间;max', '金豆拆分盘bd蓝砖石拆分盘mw拆分盘am拆分盘smartglobe智慧地球;mbi拆分盘;ant拆分盘myworld拆分盘', 'mcc', 'megbrightfx', 'metatrader4外汇', 'mxc抹茶;ieo币;上新币', 'nordfx', 'OBT;欧比特OBT;比特矿工联盟', 'okcion;okex', 'okex', '奥美集团;otm奥美外汇信托;奥美外汇信托;otm奥美', 'oxdfx牛津汇慧投资', 'ptfx;jfx雅加达期货交易所', 'PT金融理财', 'rebatesme海淘', 'saxo盛宝集团', 'sds外汇', 'SGFX鼎展国际', 'SGL', 'sms', 'tahoe泰浩', 'tbs外汇交易', 'tdc', 'tickmill', 'comex;trust', 'TT互助盘', 'SITSDSUTLHON;V-COIN', 'wayne', 'wdb?markets;wdb?', 'westarfx维盛资本', 'wlfx', 'wlfx万', 'YY互助;云企湘赢商城;绿藤购;一币理财;阳光乐园;云讯通;易特币;英国富邦投资、英国创富联盟;云讯通五行币;云鼎云币;YBI国际互助;一未来;云游(;云波网;野狼战队;云梦生活;亿达城市;云矿机;一川(澳门)投资;英特币;匀加速;壹购物xfc', 'yielan', 'YOUBK集团;YBT支付;YouBank', 'Bakkt比特币期货;Bakkt期货;Bakkt;Bakkt比特币', '快鹿系;快鹿投资', 'plustoken;plustoken钱包', '比特币;币创交易所btron', 'AKRO;ARRO;lar;火币优选;blobkvc;Libra数字货币;比特币;akro', '瑞波币;币安Binance;LAR;英雄链;比特币', 'zj盘;IBS星球;币安Binance;比特币;unglobal;IBS星球（', 'BE区块链;BE区块', 'ATGWORLD;金融帝国', '艾姆隆', '艾拓思外汇', '艾拓思', '安币anbi', '奥美otm', '澳洲trademax', '澳洲百汇', '养老山庄', '百华环球', '奥弗国际;fxmitan;百家号;oeyc欧银', '百特国际微交易', '百臻堂', '宝泰金融', '保定涿州广汇亲和城', '新加坡鼎汇外汇;SixBatt', '北京嘉盛昌隆商贸有限公司', '北京亚太融合资本管理有限公司', '贝恩环球短线', '', '广州英皇金融国际', '泰康offer;泰康集团', '坤傲国际', 'midas）', '湖南快线文化传媒有限公司', '易到公司', '', '团贷网', '雷达币', '比特兔交易所', '比特未来', '比特亚洲', '芝加哥etf期货交易所biger', 'usdt;margintrading;bfx;okex', 'Coinbase;币安', '', 'BHEC;币虎全球;币虎全球交易所（', '比特币;交易所', '必达环宇', '', '大唐币', '天华金号', '宝睿德;利客购', '财富地图', 'ant金服', '', '东航金融', '炒客网（chaoex）交易所', 'abcc', '聚汇天下', '华汇财富', 'sds', '', '创富国际', '创富国际', 'BZX', '创鑫贷', '创鑫工艺', '创鑫', '创元世纪金融', '凯特币', '斑马快跑', '币创交易所', 'bitbank', 'ft', '乐视生态', '十二生肖;趣步', '奔驰smart', '坚固环球', '', '南京证券天风证券;亚星锚链', '通汇国际;大脸猫', '维卡币;马克币;百川币', '维卡币;马克币;百川币', '大鑫金融', 'e租宝', 'tbc', 'D-CLUB汇吧', 'Ripple;RippleNet', 'globalcoin', '得来惠', '德维尔', '', '', '', 'HuaweiPay支付;HuaweiPay', '蒂克币', '点点汇', '点点啦', '点点啦', ';&quot', '鼎丰国际娱乐城', '鼎汇国际;鼎汇外汇', '鼎汇金融', '聚万汇商城;聚万汇', '玩客币', '币天下', '久久基金;恩圣威(', '恩圣威外汇', '赫尔币', 'qa量化机器人;qa机器人', '天华创客购', 'cardiff炒', 'e投睿etoro', 'fxmiso寰星国际', 'kingsida金仕达外汇', 'mt4外汇交易平台;omt4外汇交易平台', '大通金融集团', '点滴汇', '鼎汇钱包', '启点外汇交易', '华硒时代;湖南华硒时代', 'BFS牛汇', '万世吉短线', 'ogh', '久久外汇;坚固环球;澳瑞克，GE', '万致外汇', 'fxbtg大旗金融', '“嘉盛”国际投资;O“嘉盛”国际投资', 'Snrcfx鼎汇（鼎匯）;OSnrcfx鼎汇（鼎匯）', '汇聊', '环球松鼠', '诺德股份', '', '智选天下', '发好啦网;YD国际期货', '', '悟空单车', '必火币BHB', '比特币;24mex', '凤凰彩票', '福汇', '富邦财富', '大唐币;百川币', 'tbc天宝币', '港宏国际', '高达金融', '高力国际', '', '国盛金业;伦敦金;外汇保证金', '', 'bg币', '众汇盈', 'jhfore', '佰利安', '新加坡CMS;印尼国家期货交易所(ICDX);LongAsia长亚集团', '易通共享商城', '广州市创鑫软件科技有限公司', '越秀小额贷款;股东广州越秀金融控股集团有限公司;越秀金控;越秀融资租赁;越秀产业基金;越秀金融科技;广州证券;广州担保', '', 'akindred外汇', '艾拓思;恩圣威', '艾拓思;恩圣威', '光大信托;中原证券;蚂蚁花呗;的币创交易所', 'tbc国际外汇黄金交易商', '', 'tri', '乐币', '国付宝信息科技有限公司;创富国际有限公司', 'mcc外汇', '八元易投宝;微交易;有色金属;每日返贵金属;华夏贵金属;黄金交易;汇通;白银宝;华尔街贵金属;微盘;白银交易;掌上黄金;网易贵金属;酷金易购;华赢宝;口袋天下;集金号;小牛淘金;黄金投资;文华;贵金属交易;投幸福;淘金路;全民赚钱宝;国鑫贵金属;黄金期货交易;国际级标准的;口袋贵金属;百汇盈;鑫汇贵金属;海豚智投;八元操盘;金十数据;大象;微投宝;十元易购;蚂蚁易购;口袋;贵金属期货宝;贵金属行情;熊猫投资;恒信贵金属;会投资;金道贵金属;银天下;91投资;投教宝', '八元易投宝;微交易;有色金属;每日返贵金属;华夏贵金属;黄金交易;汇通;白银宝;华尔街贵金属;微盘;白银交易;掌上黄金;网易贵金属;酷金易购;华赢宝;口袋天下;集金号;小牛淘金;黄金投资;文华;贵金属交易;投幸福;淘金路;全民赚钱宝;国鑫贵金属;黄金期货交易;国际级标准的;口袋贵金属;百汇盈;鑫汇贵金属;海豚智投;八元操盘;金十数据;大象;微投宝;十元易购;蚂蚁易购;口袋;贵金属期货宝;贵金属行情;熊猫投资;恒信贵金属;会投资;金道贵金属;银天下;91投资;投教宝', '八元易投宝;微交易;有色金属;每日返贵金属;华夏贵金属;黄金交易;汇通;白银宝;华尔街贵金属;微盘;白银交易;掌上黄金;网易贵金属;酷金易购;华赢宝;口袋天下;集金号;小牛淘金;黄金投资;文华;贵金属交易;投幸福;淘金路;全民赚钱宝;国鑫贵金属;黄金期货交易;口袋贵金属;百汇盈;鑫汇贵金属;海豚智投;八元操盘;金十数据;大象;微投宝;十元易购;蚂蚁易购;口袋;mt4互联网金融投资交易平台;贵金属期货宝;贵金属行情;熊猫投资;恒信贵金属;会投资;金道贵金属;银天下;91投资;投教宝', '', '亚欧币', '', '&nbsp;首汽约车', 'gaex.com交易;超级节点', '', '河南云之梦网络科技有限公司', 'ruax', '宏禄投资', '7号网;零零购', '7号网;零零购', '环球财通微交易', '环球国际外汇交易中心', 'BOLL通道', '牛拜单车', '牛拜单车', '', 'mcc', '', '米切尔', '', 'cmb', '汇福集团HFGroup', '汇金智能交易', '汇通外汇', '汇鑫富交易', '1Broker', '汇信环球;微交易', '汇信原引', 'COMEX', '前海旗隆;国民技术', '汇星人', '汇兴智业', '汇赢国际', '汇智达投资管理有限公司', '易通商城', '币虎基金;币虎财经;火星数;币虎全球交易所;火星计划', '激石外汇', 'ca互助盘', '加的夫(cardiff)', '嘉瑞基', '嘉盛财富', '嘉盛外汇', '嘉盛外汇', '嘉盛外汇', 'BLMarkets', '', 'KAK;短线外汇', '恒信国际', '沃客', '凤凰币', '博邦商城', '云联惠', '激石集团', '建信金融租赁有限公司', '世纪金融', '', 'SFA超级理财师', '比特派', '金帛投资', '金道诚', '金富国际金融', '鑫汇国际', '金远地产', '鸟巢善心大会;善心汇', '汇鼎国际', '天汇金融）;TOSKY天汇金融（', 'newsolid新坚固', '成都农商行;安邦资产管理公司;安邦基金管理公司;安邦保险集团;安邦保险;邦银金融租赁有限公司', '银广夏事件;航天通信;万福生科案;绿大地事件;中科云网', '宗易通', '环球国际金融', '嘉胜国际', 'gs-forex高盛国际', 'GAGFX金石外汇所', '友邦外汇', '北大青鸟', '香港英皇集团', '东盟汇丰h币', '币王', '久久外汇;Markit;恩圣威返', '久久外汇;久久环球', 'ICO', '汇盈通期权', '钜富外汇', '神仙理财', 'Facebook;Paypal;火币中国', '万福币', '福布币', '天津泰达投资控股、;关联方;北方信托', '比特币;lar腊肉;波场超级社区;比特币LAR艺术区块链', '五化联盟;云数贸联盟;云讯通;五行币', '币贝（;比特币', 'cointelegraph;ftc(金信链finance?trust?chain);ftc基金会', '聚赢宝', '开汇国际', 'hdi', '康养链HERC', '康正汽车', 'prime', '', '英皇集团', '口袋贵金属', 'hpoptionfinancialser;快乐期权;hpoption，;hpoption;fxshell', '', '六点公会;超级明星;Wfeex;DASH-M;PureBit;土拨鼠', '莱福币', '金银油', '老虎汇', '正荣地产', '永安林业', '雷达币', '雷达币', '海外房产;保险金信托;新湖财富', '微客谷商城', '云联惠;趣购购物商城', '链派科技公司', '零零购', 'fxopen', '亨达外汇', '比特易', 'fxcm福汇', '益链科技', '银亚国际', '马克币', '曼尼国际', '玫瑰石外汇', 'amp安普国际', '比特币;cme、;比特币期权', '摩登科技', '德孝中华新媒体联盟;德孝企业之家;德孝中华三农互助平台;德孝中华', '韩王金融帝国', 'mxc交易所', '莱汇币', '', '51数字资产', 'starttojump;okex', '启航信托', 'y-zg', '牛津汇', '纽卡斯外汇;纽卡斯金融外', '', '诺德外汇', '云南信托;湘财证券;诺亚财富', '女人币', '拍拍贷', '中科汇通支付', 'lcct;聚英堂', '远大期货', '联准国际usg外汇', '名丰财网;深圳智本金融服务有限公司', '普罗汇', '天汇金融;cnEIpkki', 'htt', '点点手', 'Mandy', 'fxbtg大旗金融集团', 'gmi外汇', 'l匀加速商城', '先汇国际', '中进大宗，', '中澳控股集团有限公司', 'garry', '比特币;快捷币', '云耕云牧', '金汇宝', '微交易;贵金属', '薪付宝', 'EnterpriseAdvantage;普罗米集团', '千禧外汇', '钱币', '鼎汇', '艾利威', '智车芯;ubi', '好望角', '云联惠', '嘉品乐购商城', '全球购', 'SFA超级理财师', 'plus', 'rdcfx', 'emailprotected];信达利外汇', '荣亘环球', '超华科技;大智慧;金亚科技', '', '软银中国;比特易;比特币', '瑞银国际', 'iforex外汇交易有限公司', '三立集团', 'AirBitClub;AirBitClub数字资产;traxalt;bitfoliex', '全球购;全球卖', '哒哒乐购商城', '山西华嘉盛房地产开发集团有限公司', '', '大连期货交易所', '上投摩根;上海信托;摩根资产', '', 'BaihuaGlobal（', '尚汇国际', '奢汇金融', '沈阳博元投资', '盛鑫投资', '世纪金融', '', 'aptt', 'icc', '易到', '首域金融', '首域微交易', 'XBEX菲比特交易', '巨石ggtrade', 'BUC;丘比特I号;BitUN', '恩圣威微交易', '金富国际金融', '雷达币', '天汇金融', '易到领', 'wib中国', 'amp;asic）', '易到时', '坚固环球', '云网币', 'mobike', '天汇金融', '天津华尔亚汇', '天津赛象融通小额贷款有限公司', '乐兑乐购商城;天天兑', '天添薪', 'ptfx;ptprutonmegaberjangka', '通通理财', '中瑞财讯', '财富币', 'zepa', '618外汇网', '外汇链fxas（;scenarized', 'FXCM途鑫国际', '维森证券', '长城资产;外汇天眼;广州粤泰集团股份有限公司;粤泰股份;深圳市中浩丰投资发展有限公司;广州嘉盛;世茂房地产', '火币;PAI/USDT', '万盈国际微交易', '韩越金融帝国', '优拜单车;摩拜单车', '', '潍坊家林外汇交易', '未来东方金融', 'aetos', '', '昆仑国际微交易', '富通环球', 'alpari爱福瑞国际;oalpari爱福瑞国际', '叮咚钱包', 'silver;forex;xag;nzd;pamm;xau;gold;metatrade;cad;无忧网mt4;gbp;eur;aud', '西部金融租赁;武汉证券;汉唐证券;中国金融;金信信托;西北证券', 'phoenix', '希尔交易;Lucas', '希尔链', '', '暗黑币', '', 'pian;先汇国际', '先汇国际', '先汇国际', '', '长颈鹿', 'ant蚂蚁链', '比特币;开普币', '比特币;witi', '线上科创普惠;北京中关村科技融资担保有限公司', '线下理财', '湖南芒果财富网络科技有限', '星化金融;币精灵(fairycoin)', '摩尔币', '淘丫丫', '天创息壤;聚汇天下;大唐天下;全民影视', 'gs游戏理财系统', '雷达币', '众和乐购', '人人公益商城', '新瑞币', '屏端传媒;北大青鸟', '创富国际', 'ausforex', '鑫融街', '商易通', '信鑫投资', '星融财富', 'SLC奇点币', '亨达外汇', '徐州天业;东京产业;圣克莱蒙特航运', 'usg', '英雄链;太空链;okex', '优悦币', '黑龙江艾拓思;艾拓思', '', 'CWIOS', '宜汇国际;FSP', '天地自然', '陆家嘴;比特币', '', '领峰acetop;acetop', '万商惠', '家族信托;宜信;海外投资;海外保险;海外置业;海外基金;海外资产', '义隆金融', '异形托', '易达币', '易到回应', '易到', '易到实', '易到太', '易富外汇', '', '兴亚币网', 'Karatpay;K-merchant;Karatbit', 'svsfx', '比特币;英国tickmill外汇平台', '英皇宝', '英皇宝', '英皇集团', '英皇集团;英皇金融集团', 'wellman;汉森信托;scm集团;eight-element', '', '领峰国际;四川浩元恒达实业集团有限公司;浩元公司', '金比特(JBT)', 'okex交易所', '', '红盾网', '吉利集团', '迅雷', 'hcoin', '广东再担保', '拍拍贷;宜人贷;圣盈信', 'smartmarkets', '宇汇国际', '玉米财富币', '远大期货', '远大期货', '远大期货', 'scen', '云联牧场(', '云商保;华汇保险', '云梦生活', '盛大华天;1040阳光工程;民族资产解冻/;绿色世界理财;微转动力;开心理财网;中绿资本;FIS数字金库;K币商城;绿藤理财;马克币;万通奇迹;MFC币理财;云数贸;云讯通;中晋系;星火草原;网络黄金;DGC共享币;天狮集团;光彩币;善心汇;易赚宝;GemCoin(;LCF项目;恒星币;沃客生活;维卡币;云联惠;丰果游天下;云在指尖/;摩根币;国通通讯网络电话;EGD网络黄金;五行币;世界云联;五化联盟;神州互联商城;云梦生活;港润信贷;赛比安;万达复利理财;富迪;贝格邦BGB;薪金融;莱汇币;老妈乐;SF共享金融;二元期权;CNC九星;惠卡世纪;MGN积分宝;亿加互助;天音网络;WV梦幻之旅;万福币;宝微商城', '匀加速', '雷达币', 'cmb', '助业贷;医美;车险;分期贷款;乐居贷;薪时贷', 'morgan摩根', 'RCIF中舜国际', '汇盈通', '狮子衍生品', '', 'mcc', '兴业市场', 'ico时代交易所', '银亚国际', '铂略金融', '', '', '中金交易', '马克币', '', '艾特币ATC', '长亚集团际', 'mcc', '骑电单车', 'ea邦网站', '', '风起银达信息技术（北京）有限公司', '云数贸', '', '圣盈信', 'dcoin', '链网', '', 'FXTechstrategyTeam', 'unibank', '', '易方达瑞财;易方达', '芝麻外汇交易平台', '光彩币', '链克;玩客币', 'mcc', '智养链', '圣盈信;恩特拉能源信托', '比特币;exx', '聚汇天下', '启明星辰', '', '', '出国金融;消费金融;车主金融', '中金公司;cicc)', '中瑞财讯', '环宇国际微交易', '种子币', '众股网', 'teletrade', 'ZJLT项目方', '凯德集团;北京链家置地;凯德商用', '雷达币', '资亿宝', '艾姆隆', '韩都优品全球购', '盈佳国际', '火币网;OKEX', '锦州启航居家', 'ing', 'rnsfx', '中国PE基金;易智堂']
+precision: 0.5295566502463054, recall 0.6694343539180073, f1 0.5913362365344946
+dev set : step_4006,precision_0.5295566502463054,recall_0.6694343539180073
+5it [00:10,  2.14s/it]step 4011, loss 39.8809 lr 0.00010
+14it [00:28,  1.92s/it]step 4021, loss 20.0253 lr 0.00010
+25it [00:50,  2.09s/it]step 4031, loss 272.1718 lr 0.00010
+34it [01:10,  2.15s/it]step 4041, loss 25.3403 lr 0.00010
+45it [01:32,  2.04s/it]step 4051, loss 20.4579 lr 0.00010
+54it [01:51,  2.09s/it]step 4061, loss 10.1299 lr 0.00010
+65it [02:14,  2.15s/it]step 4071, loss 20.2868 lr 0.00010
+75it [02:35,  2.15s/it]step 4081, loss 112.6530 lr 0.00010
+85it [02:56,  2.17s/it]step 4091, loss 4.6255 lr 0.00010
+95it [03:18,  2.17s/it]step 4101, loss 19.3789 lr 0.00010
+104it [03:35,  1.92s/it]step 4111, loss 9.3108 lr 0.00010
+115it [03:58,  2.11s/it]step 4121, loss 61.7742 lr 0.00010
+124it [04:16,  2.06s/it]step 4131, loss 15.4279 lr 0.00010
+135it [04:39,  2.08s/it]step 4141, loss 9.7003 lr 0.00010
+145it [05:00,  1.89s/it]step 4151, loss 15.1395 lr 0.00010
+155it [05:21,  2.09s/it]step 4161, loss 72.6375 lr 0.00010
+165it [05:42,  2.06s/it]step 4171, loss 24.4230 lr 0.00010
+175it [06:04,  2.15s/it]step 4181, loss 33.7731 lr 0.00010
+185it [06:22,  1.87s/it]step 4191, loss 3.8416 lr 0.00010
+194it [06:40,  2.08s/it]step 4201, loss 24.5604 lr 0.00010
+204it [07:01,  2.05s/it]step 4211, loss 18.3210 lr 0.00010
+215it [07:25,  2.09s/it]step 4221, loss 32.0386 lr 0.00010
+225it [07:46,  2.15s/it]step 4231, loss 15.8259 lr 0.00010
+235it [08:06,  2.09s/it]step 4241, loss 1.6118 lr 0.00010
+245it [08:27,  2.16s/it]step 4251, loss 19.5238 lr 0.00010
+254it [08:47,  2.34s/it]step 4261, loss 6.7716 lr 0.00010
+265it [09:11,  2.09s/it]step 4271, loss 18.5875 lr 0.00010
+275it [09:32,  2.06s/it]step 4281, loss 6.1761 lr 0.00010
+285it [09:53,  2.14s/it]step 4291, loss 5.2246 lr 0.00010
+295it [10:13,  2.07s/it]step 4301, loss 88.9243 lr 0.00010
+305it [10:34,  2.18s/it]step 4311, loss 48.9136 lr 0.00010
+314it [10:51,  1.65s/it]step 4321, loss 10.1014 lr 0.00010
+325it [11:15,  2.20s/it]step 4331, loss 63.0919 lr 0.00010
+334it [11:34,  2.19s/it]step 4341, loss 19.9139 lr 0.00010
+345it [11:57,  2.12s/it]step 4351, loss 12.2369 lr 0.00010
+355it [12:18,  2.18s/it]step 4361, loss 64.9353 lr 0.00010
+365it [12:40,  2.20s/it]step 4371, loss 6.3275 lr 0.00010
+375it [12:59,  1.84s/it]step 4381, loss 34.4111 lr 0.00010
+385it [13:21,  2.19s/it]step 4391, loss 17.2363 lr 0.00010
+395it [13:42,  2.11s/it]step 4401, loss 5.0156 lr 0.00010
+405it [14:03,  2.07s/it]step 4411, loss 3.1392 lr 0.00010
+415it [14:24,  2.13s/it]step 4421, loss 23.3589 lr 0.00010
+425it [14:46,  2.19s/it]step 4431, loss 8.4791 lr 0.00010
+434it [15:04,  2.07s/it]step 4441, loss 5.7950 lr 0.00010
+444it [15:26,  2.17s/it]step 4451, loss 16.0001 lr 0.00010
+455it [15:49,  2.05s/it]step 4461, loss 22.0796 lr 0.00010
+465it [16:09,  1.88s/it]step 4471, loss 26.7800 lr 0.00010
+475it [16:31,  2.17s/it]step 4481, loss 32.2405 lr 0.00010
+485it [16:52,  2.18s/it]step 4491, loss 16.2296 lr 0.00010
+495it [17:13,  2.15s/it]step 4501, loss 4.6837 lr 0.00010
+505it [17:34,  2.03s/it]step 4511, loss 9.6306 lr 0.00010
+514it [17:53,  2.16s/it]step 4521, loss 8.9580 lr 0.00010
+525it [18:15,  1.80s/it]step 4531, loss 4.5669 lr 0.00010
+535it [18:36,  2.08s/it]step 4541, loss 3.7849 lr 0.00010
+545it [18:57,  2.17s/it]step 4551, loss 30.4548 lr 0.00010
+555it [19:18,  2.06s/it]step 4561, loss 16.6090 lr 0.00010
+565it [19:40,  2.17s/it]step 4571, loss 6.4403 lr 0.00010
+574it [19:58,  2.04s/it]step 4581, loss 7.8027 lr 0.00010
+585it [20:20,  1.97s/it]step 4591, loss 8.2458 lr 0.00010
+595it [20:40,  2.11s/it]step 4601, loss 12.0756 lr 0.00010
+605it [21:01,  1.99s/it]step 4611, loss 6.2717 lr 0.00010
+615it [21:23,  2.17s/it]step 4621, loss 28.1251 lr 0.00010
+625it [21:43,  2.09s/it]step 4631, loss 11.0588 lr 0.00010
+635it [22:05,  2.18s/it]step 4641, loss 40.6888 lr 0.00010
+645it [22:26,  2.09s/it]step 4651, loss 62.7598 lr 0.00010
+654it [22:46,  2.21s/it]step 4661, loss 22.9480 lr 0.00010
+665it [23:09,  2.14s/it]step 4671, loss 4.9609 lr 0.00010
+675it [23:31,  2.16s/it]step 4681, loss 36.4727 lr 0.00010
+685it [23:53,  2.18s/it]step 4691, loss 9.0330 lr 0.00010
+694it [24:11,  2.11s/it]step 4701, loss 19.0938 lr 0.00010
+705it [24:33,  2.01s/it]step 4711, loss 3.5436 lr 0.00010
+715it [24:54,  2.14s/it]step 4721, loss 3.7258 lr 0.00010
+725it [25:15,  2.00s/it]step 4731, loss 33.0127 lr 0.00010
+735it [25:35,  1.99s/it]step 4741, loss 5.6241 lr 0.00010
+744it [25:55,  2.14s/it]step 4751, loss 23.8605 lr 0.00010
+755it [26:18,  2.12s/it]step 4761, loss 33.5491 lr 0.00010
+765it [26:39,  2.15s/it]step 4771, loss 4.2415 lr 0.00010
+775it [27:01,  2.17s/it]step 4781, loss 11.2159 lr 0.00010
+784it [27:20,  2.18s/it]step 4791, loss 8.7566 lr 0.00010
+795it [27:42,  2.08s/it]step 4801, loss 18.6332 lr 0.00010
+804it [28:01,  2.06s/it]step 4811, loss 23.9078 lr 0.00010
+815it [28:23,  1.99s/it]step 4821, loss 16.9609 lr 0.00010
+825it [28:45,  2.28s/it]step 4831, loss 81.3793 lr 0.00010
+835it [29:08,  2.27s/it]step 4841, loss 3.7316 lr 0.00010
+845it [29:30,  2.09s/it]step 4851, loss 34.1614 lr 0.00010
+855it [29:51,  2.01s/it]step 4861, loss 15.2070 lr 0.00010
+865it [30:13,  2.16s/it]step 4871, loss 12.2535 lr 0.00010
+874it [30:31,  2.14s/it]step 4881, loss 5.4741 lr 0.00010
+885it [30:54,  2.15s/it]step 4891, loss 6.6926 lr 0.00010
+895it [31:16,  2.19s/it]step 4901, loss 138.5370 lr 0.00010
+905it [31:37,  2.14s/it]step 4911, loss 15.1512 lr 0.00010
+915it [31:58,  1.83s/it]step 4921, loss 3.8328 lr 0.00010
+924it [32:18,  2.19s/it]step 4931, loss 2.7985 lr 0.00010
+935it [32:41,  2.10s/it]step 4941, loss 22.3642 lr 0.00010
+945it [33:01,  2.01s/it]step 4951, loss 14.0713 lr 0.00010
+955it [33:21,  1.99s/it]step 4961, loss 10.3257 lr 0.00010
+965it [33:42,  2.08s/it]step 4971, loss 5.9255 lr 0.00010
+974it [34:00,  2.08s/it]step 4981, loss 25.1270 lr 0.00010
+985it [34:22,  2.07s/it]step 4991, loss 5.0201 lr 0.00010
+995it [34:44,  2.16s/it]step 5001, loss 2.6519 lr 0.00005
+1005it [35:06,  2.12s/it]step 5011, loss 5.1720 lr 0.00005
+1015it [35:27,  2.08s/it]step 5021, loss 18.4755 lr 0.00005
+1025it [35:47,  2.11s/it]step 5031, loss 15.6213 lr 0.00005
+1035it [36:09,  2.11s/it]step 5041, loss 17.8455 lr 0.00005
+1044it [36:28,  2.16s/it]step 5051, loss 16.6111 lr 0.00005
+1055it [36:52,  2.19s/it]step 5061, loss 35.2966 lr 0.00005
+1065it [37:13,  2.17s/it]step 5071, loss 4.4263 lr 0.00005
+1075it [37:35,  2.11s/it]step 5081, loss 8.2686 lr 0.00005
+1084it [37:54,  2.09s/it]step 5091, loss 28.1144 lr 0.00005
+1094it [38:16,  2.23s/it]step 5101, loss 26.0100 lr 0.00005
+1104it [38:36,  1.83s/it]step 5111, loss 26.3976 lr 0.00005
+1115it [38:59,  2.02s/it]step 5121, loss 21.1766 lr 0.00005
+1125it [39:20,  2.15s/it]step 5131, loss 13.4175 lr 0.00005
+1134it [39:38,  2.09s/it]step 5141, loss 7.9402 lr 0.00005
+1145it [40:01,  2.18s/it]step 5151, loss 1.9708 lr 0.00005
+1155it [40:21,  2.13s/it]step 5161, loss 4.1520 lr 0.00005
+1165it [40:42,  1.92s/it]step 5171, loss 18.8870 lr 0.00005
+1175it [41:03,  2.07s/it]step 5181, loss 21.6045 lr 0.00005
+1185it [41:23,  2.05s/it]step 5191, loss 34.3774 lr 0.00005
+1194it [41:42,  2.13s/it]step 5201, loss 87.0186 lr 0.00005
+1205it [42:06,  2.14s/it]step 5211, loss 43.6726 lr 0.00005
+1215it [42:27,  2.13s/it]step 5221, loss 51.3815 lr 0.00005
+1225it [42:49,  2.17s/it]step 5231, loss 8.0114 lr 0.00005
+1235it [43:11,  2.19s/it]step 5241, loss 10.3486 lr 0.00005
+1245it [43:32,  2.13s/it]step 5251, loss 13.7164 lr 0.00005
+1255it [43:54,  2.21s/it]step 5261, loss 20.2987 lr 0.00005
+1265it [44:15,  2.09s/it]step 5271, loss 18.2385 lr 0.00005
+1275it [44:35,  1.97s/it]step 5281, loss 31.6930 lr 0.00005
+1285it [44:56,  2.10s/it]step 5291, loss 9.7634 lr 0.00005
+1295it [45:18,  2.17s/it]step 5301, loss 41.3672 lr 0.00005
+1304it [45:36,  2.03s/it]step 5311, loss 61.7295 lr 0.00005
+1315it [46:00,  2.23s/it]step 5321, loss 9.9758 lr 0.00005
+1325it [46:22,  2.13s/it]step 5331, loss 36.3149 lr 0.00005
+1335it [46:44,  2.22s/it]step 5341, loss 26.0242 lr 0.00005
+1345it [47:05,  2.20s/it]step 5351, loss 17.2885 lr 0.00005
+1355it [47:26,  2.17s/it]step 5361, loss 4.0541 lr 0.00005
+1365it [47:48,  2.23s/it]step 5371, loss 16.8746 lr 0.00005
+1375it [48:10,  2.29s/it]step 5381, loss 3.7330 lr 0.00005
+1385it [48:31,  2.01s/it]step 5391, loss 36.2697 lr 0.00005
+1395it [48:52,  2.15s/it]step 5401, loss 5.0658 lr 0.00005
+1405it [49:13,  2.10s/it]step 5411, loss 55.1787 lr 0.00005
+1414it [49:32,  2.11s/it]step 5421, loss 17.3267 lr 0.00005
+1425it [49:56,  2.20s/it]step 5431, loss 77.4735 lr 0.00005
+1435it [50:17,  2.18s/it]step 5441, loss 9.6698 lr 0.00005
+1445it [50:38,  2.12s/it]step 5451, loss 10.0599 lr 0.00005
+1455it [50:57,  1.82s/it]step 5461, loss 11.9730 lr 0.00005
+1465it [51:19,  2.14s/it]step 5471, loss 61.1704 lr 0.00005
+1474it [51:39,  2.16s/it]step 5481, loss 13.9006 lr 0.00005
+1485it [52:03,  2.15s/it]step 5491, loss 3.3468 lr 0.00005
+1495it [52:23,  2.15s/it]step 5501, loss 5.3012 lr 0.00005
+1505it [52:44,  2.18s/it]step 5511, loss 5.0242 lr 0.00005
+1515it [53:08,  2.34s/it]step 5521, loss 26.8540 lr 0.00005
+1525it [53:29,  2.07s/it]step 5531, loss 14.3038 lr 0.00005
+1535it [53:50,  2.12s/it]step 5541, loss 4.1394 lr 0.00005
+1544it [54:08,  1.99s/it]step 5551, loss 15.1499 lr 0.00005
+1555it [54:32,  2.18s/it]step 5561, loss 2.2922 lr 0.00005
+1564it [54:50,  1.93s/it]step 5571, loss 11.8529 lr 0.00005
+1574it [55:12,  2.19s/it]step 5581, loss 18.3496 lr 0.00005
+1585it [55:37,  2.21s/it]step 5591, loss 26.0824 lr 0.00005
+1595it [55:58,  2.16s/it]step 5601, loss 11.8357 lr 0.00005
+1605it [56:19,  2.14s/it]step 5611, loss 48.0122 lr 0.00005
+1615it [56:41,  2.12s/it]step 5621, loss 16.5575 lr 0.00005
+1625it [57:03,  2.19s/it]step 5631, loss 17.8099 lr 0.00005
+1635it [57:25,  2.20s/it]step 5641, loss 18.3884 lr 0.00005
+1645it [57:46,  2.20s/it]step 5651, loss 15.2039 lr 0.00005
+1655it [58:08,  2.21s/it]step 5661, loss 76.4749 lr 0.00005
+1664it [58:26,  2.13s/it]step 5671, loss 19.2249 lr 0.00005
+1675it [58:49,  2.05s/it]step 5681, loss 8.0900 lr 0.00005
+1685it [59:13,  2.45s/it]step 5691, loss 23.9167 lr 0.00005
+1695it [59:34,  2.07s/it]step 5701, loss 23.5402 lr 0.00005
+1704it [59:53,  2.13s/it]step 5711, loss 20.8278 lr 0.00005
+1715it [1:00:16,  1.77s/it]step 5721, loss 23.8409 lr 0.00005
+1725it [1:00:36,  2.05s/it]step 5731, loss 12.6227 lr 0.00005
+1735it [1:00:56,  2.14s/it]step 5741, loss 11.5554 lr 0.00005
+1744it [1:01:15,  2.14s/it]step 5751, loss 3.6370 lr 0.00005
+1755it [1:01:38,  2.12s/it]step 5761, loss 26.2026 lr 0.00005
+1765it [1:01:58,  1.94s/it]step 5771, loss 5.0454 lr 0.00005
+1775it [1:02:20,  2.18s/it]step 5781, loss 20.6195 lr 0.00005
+1785it [1:02:42,  2.20s/it]step 5791, loss 10.9645 lr 0.00005
+1795it [1:03:03,  1.94s/it]step 5801, loss 10.0643 lr 0.00005
+1805it [1:03:23,  1.94s/it]step 5811, loss 35.4214 lr 0.00005
+1814it [1:03:43,  2.17s/it]step 5821, loss 119.7026 lr 0.00005
+1824it [1:04:04,  2.13s/it]step 5831, loss 25.9542 lr 0.00005
+1835it [1:04:25,  1.93s/it]step 5841, loss 25.0044 lr 0.00005
+1845it [1:04:45,  2.10s/it]step 5851, loss 15.0374 lr 0.00005
+1854it [1:05:04,  2.20s/it]step 5861, loss 27.0330 lr 0.00005
+1864it [1:05:26,  2.19s/it]step 5871, loss 3.8837 lr 0.00005
+1875it [1:05:48,  2.11s/it]step 5881, loss 28.1920 lr 0.00005
+1885it [1:06:08,  2.17s/it]step 5891, loss 6.2158 lr 0.00005
+1895it [1:06:29,  2.17s/it]step 5901, loss 14.0194 lr 0.00005
+1905it [1:06:50,  2.09s/it]step 5911, loss 14.2977 lr 0.00005
+1915it [1:07:10,  2.01s/it]step 5921, loss 21.7640 lr 0.00005
+1925it [1:07:32,  2.17s/it]step 5931, loss 125.0625 lr 0.00005
+1935it [1:07:53,  2.09s/it]step 5941, loss 8.1652 lr 0.00005
+1945it [1:08:14,  2.17s/it]step 5951, loss 46.8275 lr 0.00005
+1955it [1:08:36,  2.25s/it]step 5961, loss 3.4912 lr 0.00005
+1964it [1:08:54,  2.16s/it]step 5971, loss 62.8260 lr 0.00005
+1975it [1:09:16,  2.17s/it]step 5981, loss 38.8331 lr 0.00005
+1985it [1:09:37,  2.13s/it]step 5991, loss 20.9435 lr 0.00005
+1995it [1:09:57,  2.04s/it]step 6001, loss 25.7686 lr 0.00005
+2005it [1:10:16,  1.77s/it]step 6011, loss 4.4535 lr 0.00005
+2015it [1:10:35,  1.88s/it]step 6021, loss 25.2426 lr 0.00005
+2025it [1:10:55,  2.08s/it]step 6031, loss 81.0836 lr 0.00005
+2035it [1:11:16,  2.18s/it]step 6041, loss 25.0618 lr 0.00005
+2045it [1:11:38,  2.14s/it]step 6051, loss 43.1521 lr 0.00005
+2055it [1:11:58,  2.08s/it]step 6061, loss 7.4666 lr 0.00005
+2065it [1:12:19,  2.06s/it]step 6071, loss 12.0664 lr 0.00005
+2075it [1:12:41,  2.09s/it]step 6081, loss 5.5142 lr 0.00005
+2085it [1:13:01,  1.97s/it]step 6091, loss 26.1694 lr 0.00005
+2095it [1:13:22,  2.17s/it]step 6101, loss 7.5356 lr 0.00005
+2105it [1:13:44,  2.16s/it]step 6111, loss 21.2817 lr 0.00005
+2115it [1:14:04,  2.03s/it]step 6121, loss 7.0853 lr 0.00005
+2124it [1:14:22,  1.79s/it]step 6131, loss 13.9530 lr 0.00005
+2134it [1:14:43,  2.05s/it]step 6141, loss 10.3547 lr 0.00005
+2145it [1:15:06,  2.10s/it]step 6151, loss 37.4849 lr 0.00005
+2154it [1:15:25,  2.14s/it]step 6161, loss 24.7135 lr 0.00005
+2165it [1:15:48,  2.10s/it]step 6171, loss 35.6620 lr 0.00005
+2175it [1:16:09,  2.07s/it]step 6181, loss 5.5673 lr 0.00005
+2185it [1:16:30,  2.04s/it]step 6191, loss 18.6699 lr 0.00005
+2195it [1:16:51,  2.09s/it]step 6201, loss 9.7150 lr 0.00005
+2205it [1:17:12,  2.10s/it]step 6211, loss 27.2250 lr 0.00005
+2215it [1:17:32,  2.08s/it]step 6221, loss 40.1327 lr 0.00005
+2225it [1:17:52,  1.99s/it]step 6231, loss 15.4735 lr 0.00005
+2235it [1:18:12,  2.11s/it]step 6241, loss 21.1328 lr 0.00005
+2245it [1:18:33,  2.22s/it]step 6251, loss 53.6417 lr 0.00005
+2255it [1:18:55,  2.12s/it]step 6261, loss 3.5385 lr 0.00005
+2264it [1:19:14,  2.16s/it]step 6271, loss 14.9937 lr 0.00005
+2274it [1:19:35,  2.04s/it]step 6281, loss 13.8977 lr 0.00005
+2285it [1:19:59,  2.12s/it]step 6291, loss 8.4620 lr 0.00005
+2295it [1:20:21,  2.19s/it]step 6301, loss 11.2341 lr 0.00005
+2305it [1:20:42,  2.17s/it]step 6311, loss 38.3215 lr 0.00005
+2314it [1:21:01,  2.05s/it]step 6321, loss 5.7131 lr 0.00005
+2325it [1:21:24,  2.20s/it]step 6331, loss 4.3970 lr 0.00005
+2335it [1:21:46,  2.24s/it]step 6341, loss 37.8590 lr 0.00005
+2345it [1:22:07,  2.09s/it]step 6351, loss 12.9990 lr 0.00005
+2354it [1:22:25,  2.13s/it]step 6361, loss 52.8036 lr 0.00005
+2365it [1:22:49,  2.19s/it]step 6371, loss 17.2174 lr 0.00005
+2375it [1:23:10,  2.11s/it]step 6381, loss 46.4426 lr 0.00005
+2384it [1:23:29,  2.11s/it]step 6391, loss 18.3934 lr 0.00005
+2395it [1:23:52,  2.13s/it]step 6401, loss 10.9658 lr 0.00005
+2405it [1:24:12,  2.03s/it]step 6411, loss 26.0076 lr 0.00005
+2415it [1:24:33,  2.13s/it]step 6421, loss 11.2783 lr 0.00005
+2424it [1:24:52,  1.91s/it]step 6431, loss 32.7245 lr 0.00005
+2435it [1:25:14,  2.09s/it]step 6441, loss 72.5579 lr 0.00005
+2445it [1:25:36,  2.19s/it]step 6451, loss 45.0354 lr 0.00005
+2455it [1:25:57,  2.08s/it]step 6461, loss 5.3681 lr 0.00005
+2465it [1:26:18,  1.96s/it]step 6471, loss 15.3170 lr 0.00005
+2474it [1:26:37,  2.09s/it]step 6481, loss 1.5653 lr 0.00005
+2485it [1:27:00,  2.14s/it]step 6491, loss 37.9985 lr 0.00005
+2494it [1:27:20,  2.21s/it]step 6501, loss 4.4096 lr 0.00005
+2505it [1:27:43,  2.12s/it]step 6511, loss 24.0083 lr 0.00005
+2515it [1:28:04,  2.16s/it]step 6521, loss 5.9510 lr 0.00005
+2525it [1:28:24,  2.05s/it]step 6531, loss 13.4269 lr 0.00005
+2535it [1:28:45,  2.11s/it]step 6541, loss 46.9418 lr 0.00005
+2545it [1:29:06,  2.14s/it]step 6551, loss 12.4060 lr 0.00005
+2554it [1:29:25,  2.12s/it]step 6561, loss 18.8165 lr 0.00005
+2565it [1:29:49,  2.17s/it]step 6571, loss 24.1733 lr 0.00005
+2575it [1:30:09,  1.88s/it]step 6581, loss 27.1383 lr 0.00005
+2585it [1:30:30,  2.12s/it]step 6591, loss 49.8345 lr 0.00005
+2595it [1:30:49,  2.00s/it]step 6601, loss 10.7866 lr 0.00005
+2605it [1:31:10,  2.15s/it]step 6611, loss 12.2703 lr 0.00005
+2614it [1:31:30,  2.22s/it]step 6621, loss 8.1993 lr 0.00005
+2624it [1:31:49,  1.90s/it]step 6631, loss 8.9783 lr 0.00005
+2635it [1:32:12,  1.97s/it]step 6641, loss 5.0717 lr 0.00005
+2644it [1:32:31,  2.05s/it]step 6651, loss 39.8561 lr 0.00005
+2655it [1:32:54,  2.15s/it]step 6661, loss 3.1844 lr 0.00005
+2665it [1:33:16,  2.18s/it]step 6671, loss 29.1600 lr 0.00005
+2675it [1:33:36,  2.01s/it]step 6681, loss 3.2399 lr 0.00005
+2685it [1:33:57,  2.09s/it]step 6691, loss 16.5538 lr 0.00005
+2695it [1:34:17,  2.10s/it]step 6701, loss 27.9240 lr 0.00005
+2705it [1:34:38,  2.17s/it]step 6711, loss 2.6729 lr 0.00005
+2715it [1:35:00,  2.13s/it]step 6721, loss 25.7130 lr 0.00005
+2724it [1:35:19,  2.17s/it]step 6731, loss 3.0215 lr 0.00005
+2735it [1:35:43,  1.91s/it]step 6741, loss 2.4296 lr 0.00005
+2745it [1:36:03,  2.01s/it]step 6751, loss 38.8291 lr 0.00005
+2755it [1:36:24,  2.09s/it]step 6761, loss 14.9532 lr 0.00005
+2765it [1:36:44,  1.90s/it]step 6771, loss 14.2855 lr 0.00005
+2774it [1:37:02,  2.14s/it]step 6781, loss 5.2539 lr 0.00005
+2785it [1:37:26,  2.19s/it]step 6791, loss 34.1121 lr 0.00005
+2795it [1:37:46,  2.07s/it]step 6801, loss 29.3580 lr 0.00005
+2805it [1:38:06,  1.98s/it]step 6811, loss 42.9614 lr 0.00005
+2815it [1:38:28,  2.17s/it]step 6821, loss 5.3168 lr 0.00005
+2825it [1:38:49,  2.18s/it]step 6831, loss 77.4371 lr 0.00005
+2835it [1:39:10,  1.95s/it]step 6841, loss 22.0044 lr 0.00005
+2845it [1:39:30,  1.90s/it]step 6851, loss 28.6976 lr 0.00005
+2854it [1:39:50,  2.17s/it]step 6861, loss 9.0684 lr 0.00005
+2865it [1:40:13,  2.18s/it]step 6871, loss 31.0363 lr 0.00005
+2875it [1:40:33,  1.98s/it]step 6881, loss 57.3093 lr 0.00005
+2885it [1:40:54,  2.11s/it]step 6891, loss 22.3954 lr 0.00005
+2895it [1:41:14,  2.07s/it]step 6901, loss 4.6987 lr 0.00005
+2905it [1:41:35,  2.13s/it]step 6911, loss 3.5944 lr 0.00005
+2915it [1:41:56,  2.09s/it]step 6921, loss 37.8567 lr 0.00005
+2925it [1:42:16,  1.92s/it]step 6931, loss 40.1632 lr 0.00005
+2935it [1:42:37,  2.16s/it]step 6941, loss 55.8924 lr 0.00005
+2945it [1:42:59,  2.14s/it]step 6951, loss 24.5526 lr 0.00005
+2954it [1:43:17,  2.10s/it]step 6961, loss 10.2073 lr 0.00005
+2965it [1:43:39,  2.03s/it]step 6971, loss 8.3488 lr 0.00005
+2974it [1:43:59,  2.12s/it]step 6981, loss 4.0296 lr 0.00005
+2985it [1:44:23,  2.22s/it]step 6991, loss 8.2014 lr 0.00005
+2995it [1:44:44,  2.04s/it]step 7001, loss 26.9913 lr 0.00005
+3005it [1:45:04,  2.08s/it]step 7011, loss 17.5847 lr 0.00005
+3015it [1:45:26,  2.20s/it]step 7021, loss 26.7886 lr 0.00005
+3024it [1:45:45,  2.17s/it]step 7031, loss 6.7293 lr 0.00005
+3034it [1:46:06,  2.15s/it]step 7041, loss 21.5270 lr 0.00005
+3045it [1:46:30,  2.09s/it]step 7051, loss 31.3424 lr 0.00005
+3055it [1:46:51,  2.15s/it]step 7061, loss 7.1868 lr 0.00005
+3064it [1:47:09,  1.92s/it]step 7071, loss 5.2280 lr 0.00005
+3075it [1:47:33,  2.10s/it]step 7081, loss 8.4457 lr 0.00005
+3085it [1:47:53,  1.94s/it]step 7091, loss 7.1409 lr 0.00005
+3094it [1:48:11,  2.01s/it]step 7101, loss 4.1235 lr 0.00005
+3104it [1:48:33,  2.19s/it]step 7111, loss 5.8025 lr 0.00005
+3115it [1:48:57,  2.23s/it]step 7121, loss 24.6166 lr 0.00005
+3124it [1:49:17,  2.24s/it]step 7131, loss 9.8475 lr 0.00005
+3135it [1:49:40,  2.06s/it]step 7141, loss 8.2871 lr 0.00005
+3145it [1:50:02,  2.10s/it]step 7151, loss 26.6589 lr 0.00005
+3155it [1:50:22,  2.11s/it]step 7161, loss 7.3289 lr 0.00005
+3164it [1:50:42,  2.23s/it]step 7171, loss 87.5026 lr 0.00005
+3175it [1:51:08,  2.25s/it]step 7181, loss 64.8219 lr 0.00005
+3185it [1:51:28,  2.00s/it]step 7191, loss 17.8739 lr 0.00005
+3195it [1:51:51,  2.26s/it]step 7201, loss 8.3002 lr 0.00005
+3204it [1:52:10,  2.15s/it]step 7211, loss 61.0819 lr 0.00005
+3214it [1:52:31,  2.08s/it]step 7221, loss 6.8391 lr 0.00005
+3225it [1:52:54,  2.14s/it]step 7231, loss 26.0287 lr 0.00005
+3235it [1:53:16,  2.20s/it]step 7241, loss 15.0986 lr 0.00005
+3245it [1:53:37,  2.10s/it]step 7251, loss 14.5851 lr 0.00005
+3254it [1:53:55,  2.11s/it]step 7261, loss 3.9333 lr 0.00005
+3265it [1:54:19,  2.20s/it]step 7271, loss 12.4763 lr 0.00005
+3275it [1:54:41,  2.20s/it]step 7281, loss 15.7615 lr 0.00005
+3285it [1:55:00,  1.72s/it]step 7291, loss 0.7256 lr 0.00005
+3295it [1:55:21,  2.08s/it]step 7301, loss 8.3683 lr 0.00005
+3305it [1:55:43,  2.16s/it]step 7311, loss 5.4490 lr 0.00005
+3314it [1:56:02,  2.05s/it]step 7321, loss 28.8298 lr 0.00005
+3324it [1:56:24,  2.18s/it]step 7331, loss 25.1390 lr 0.00005
+3335it [1:56:47,  2.17s/it]step 7341, loss 33.8154 lr 0.00005
+3344it [1:57:06,  2.12s/it]step 7351, loss 18.2820 lr 0.00005
+3355it [1:57:27,  1.88s/it]step 7361, loss 9.9607 lr 0.00005
+3365it [1:57:48,  2.07s/it]step 7371, loss 18.7970 lr 0.00005
+3375it [1:58:09,  2.11s/it]step 7381, loss 108.7438 lr 0.00005
+3385it [1:58:30,  2.13s/it]step 7391, loss 30.2147 lr 0.00005
+3395it [1:58:52,  2.04s/it]step 7401, loss 9.9960 lr 0.00005
+3405it [1:59:13,  2.18s/it]step 7411, loss 42.5876 lr 0.00005
+3414it [1:59:33,  2.22s/it]step 7421, loss 5.5013 lr 0.00005
+3425it [1:59:56,  2.10s/it]step 7431, loss 10.8549 lr 0.00005
+3435it [2:00:16,  2.09s/it]step 7441, loss 43.7291 lr 0.00005
+3445it [2:00:37,  2.11s/it]step 7451, loss 41.4970 lr 0.00005
+3455it [2:00:58,  2.20s/it]step 7461, loss 16.8245 lr 0.00005
+3465it [2:01:18,  2.05s/it]step 7471, loss 24.7100 lr 0.00005
+3475it [2:01:38,  1.84s/it]step 7481, loss 8.5487 lr 0.00005
+3485it [2:01:59,  2.07s/it]step 7491, loss 15.1366 lr 0.00005
+3494it [2:02:17,  1.91s/it]step 7501, loss 4.0989 lr 0.00005
+3505it [2:02:41,  2.11s/it]step 7511, loss 39.6755 lr 0.00005
+3514it [2:03:00,  2.13s/it]step 7521, loss 2.0433 lr 0.00005
+3525it [2:03:23,  2.05s/it]step 7531, loss 19.5503 lr 0.00005
+3535it [2:03:44,  2.15s/it]step 7541, loss 10.6001 lr 0.00005
+3545it [2:04:06,  2.17s/it]step 7551, loss 16.7290 lr 0.00005
+3555it [2:04:27,  2.25s/it]step 7561, loss 12.8424 lr 0.00005
+3565it [2:04:49,  2.17s/it]step 7571, loss 50.8480 lr 0.00005
+3575it [2:05:09,  1.99s/it]step 7581, loss 15.6353 lr 0.00005
+3584it [2:05:28,  2.12s/it]step 7591, loss 23.6372 lr 0.00005
+3595it [2:05:50,  2.07s/it]step 7601, loss 4.3115 lr 0.00005
+3604it [2:06:09,  2.11s/it]step 7611, loss 4.2836 lr 0.00005
+3615it [2:06:33,  2.06s/it]step 7621, loss 10.6864 lr 0.00005
+3625it [2:06:55,  2.15s/it]step 7631, loss 56.3009 lr 0.00005
+3635it [2:07:17,  2.23s/it]step 7641, loss 24.0612 lr 0.00005
+3644it [2:07:37,  2.24s/it]step 7651, loss 14.1335 lr 0.00005
+3654it [2:07:59,  2.25s/it]step 7661, loss 15.9935 lr 0.00005
+3665it [2:08:23,  2.19s/it]step 7671, loss 12.0679 lr 0.00005
+3675it [2:08:45,  2.18s/it]step 7681, loss 41.6975 lr 0.00005
+3684it [2:09:06,  2.36s/it]step 7691, loss 11.8488 lr 0.00005
+3695it [2:09:30,  2.24s/it]step 7701, loss 18.5035 lr 0.00005
+3705it [2:09:52,  2.27s/it]step 7711, loss 68.6479 lr 0.00005
+3715it [2:10:14,  2.17s/it]step 7721, loss 3.1367 lr 0.00005
+3725it [2:10:36,  2.24s/it]step 7731, loss 15.3561 lr 0.00005
+3735it [2:10:58,  2.20s/it]step 7741, loss 26.9255 lr 0.00005
+3745it [2:11:21,  2.21s/it]step 7751, loss 4.8175 lr 0.00005
+3754it [2:11:41,  2.25s/it]step 7761, loss 20.2183 lr 0.00005
+3765it [2:12:05,  2.13s/it]step 7771, loss 24.5084 lr 0.00005
+3775it [2:12:28,  2.26s/it]step 7781, loss 46.6073 lr 0.00005
+3785it [2:12:49,  2.11s/it]step 7791, loss 29.7413 lr 0.00005
+3795it [2:13:11,  2.19s/it]step 7801, loss 9.8817 lr 0.00005
+3804it [2:13:31,  2.25s/it]step 7811, loss 26.3638 lr 0.00005
+3815it [2:13:54,  1.95s/it]step 7821, loss 24.1995 lr 0.00005
+3825it [2:14:16,  2.08s/it]step 7831, loss 14.5887 lr 0.00005
+3835it [2:14:36,  2.07s/it]step 7841, loss 23.4260 lr 0.00005
+3845it [2:14:58,  2.25s/it]step 7851, loss 18.7329 lr 0.00005
+3855it [2:15:20,  2.19s/it]step 7861, loss 2.3154 lr 0.00005
+3865it [2:15:44,  2.36s/it]step 7871, loss 1.8119 lr 0.00005
+3875it [2:16:07,  2.20s/it]step 7881, loss 26.8993 lr 0.00005
+3885it [2:16:31,  2.40s/it]step 7891, loss 19.0935 lr 0.00005
+3895it [2:16:54,  2.36s/it]step 7901, loss 29.4268 lr 0.00005
+3905it [2:17:15,  2.20s/it]step 7911, loss 26.9224 lr 0.00005
+3915it [2:17:38,  2.35s/it]step 7921, loss 24.5354 lr 0.00005
+3925it [2:18:00,  2.06s/it]step 7931, loss 3.8274 lr 0.00005
+3935it [2:18:21,  2.12s/it]step 7941, loss 25.2693 lr 0.00005
+3944it [2:18:39,  1.85s/it]step 7951, loss 103.1591 lr 0.00005
+3955it [2:19:00,  1.90s/it]step 7961, loss 21.1891 lr 0.00005
+3964it [2:19:19,  2.20s/it]step 7971, loss 21.0146 lr 0.00005
+3975it [2:19:45,  2.38s/it]step 7981, loss 4.9326 lr 0.00005
+3985it [2:20:08,  2.24s/it]step 7991, loss 94.5920 lr 0.00005
+3994it [2:20:27,  2.13s/it]step 8001, loss 14.1381 lr 0.00005
+4005it [2:20:52,  2.24s/it]step 8011, loss 4.5057 lr 0.00005
+4006it [2:20:55,  2.11s/it]
+553it [02:46,  3.32it/s]
+1105
+1105
+['艾克国际;中北选买', '东吴金服;恒利金业;元期服', '红橙优选;中北选买', '中北选买', '易信;中北选买', '易信', '', '易信', '和平影视;富二贷;中鼎金服;中鼎国服', '中鼎国服', '和平影视;上海和平影视', '富二贷', '惠嘉金融;玖富钱包;小诺理财;惠嘉家装宝;Gone', '理财端;聚宝普惠;沙小僧;信用宝', '抱财网;e贝宝;米缸金融;沙小僧;富润尚美;闲钱宝;易通贷;银湖网;前海理想金融;理想宝;金信网', '汇聚天下', '外汇宝', '汇财通', '中中国外汇交易中心;中国外汇交易中心', '中金所;欧丰投资', '', '有蛇;微商之家;中国微商之家', '微商之家;微商之;中国微商之家', 'GHz产业链', '联创财富', '联创财富', '康汉投资;恩力集昌;中源诚信', '中恒策略', '中恒策略', '中厚融合;中厚理财', '北京诺伊投资有限公司', '财富管理中心;中江信托', '中金福投资理财', '中金摩根', '中金摩根;裕智倍保', '中金摩根', '中聚明投', '中聚明投', '惠嘉金融;惠嘉家装宝;玖富钱包;小诺理财', '中联亿配', '中龙创想', '中龙创想', '中龙创想', '中南信达金融理财;中南信达金融投资理财', '中能国际', '中能国际', '中富民信;中融民信', '中融民信;民信贷', '紫米宝贝;中融民信;创利投;易人金服;泓曲金融;鑫时光', '大额标;索星金服;陆金服;点融网;爱当宝;广信贷;铂诺理财;正道金服;和信贷;凤凰金融;向上金服;懒财金服;简理财', '中富民信;中融民信;民信贷', '中融民信;民信贷', '汇淘金;易投杭;零星宝;汇总国美金融;积幂金服;信融财富;盛世汇海;金投手;融金所;旭财网;中融民信;台得隆;立马理财;巨如众吧;融民信;来财街;微易贷;鲸亿集团;壹万木投资;云联惠;综财投资;鲸明理财;美易理财;巨如意;巨和宝;币优铺;通宝金服;安维茂;慧融财富;中新金服;惠人贷;华人金控;金疙瘩;亿宝贷;鸿融网;善林金融', '雄信投资;首创投资;易羊金融;乐驰金服;武宝投资;中科金服;ME金融', '中瑞财讯', '中赢国际EGML环球金融;CITIGLOBAL;海南大宗商品;长虹资本;SpeedTrad速汇国际;bitkoc德林资本', '中瑞财讯', '中瑞财讯', '', '中首投资', '中首投资', '', '', '酷骑单车;酷骑(北京)', '酷骑;酷骑（;酷骑单车', '酷骑;酷骑单车', '酷骑', '捷越联合', '捷越联合', '齐乐融融E', '中信华睿;御和弘', '中信华睿;蔚蓝生物', '中信华睿', 'HATSKY;金田策略;银岛配资;航资本', '中盈财富', '中盈财富;中盈宝A', '创期国投', '川商联宗商品交易中心;广州西勃商品交易中心;海南大宗商品交易中心;尚志市贸易大宗商品交易', '贵州国际商品交易中心;大连商品交易所', '', 'Eminer;OKEx', 'Eminer;Token;OKEx', '盛财汇;禦和弘', '权棕琛;禦和弘', '时盛财汇', '众汇外汇;众汇', '众汇外汇', '众汇外汇', '众牧宝', '众人帮', 'MBI;榴莲币;华克金;mti;MTI', 'MBI;榴莲币;华克金;MFC;MTI', '盘界币圈', '互融宝;蜂涌理财;摇财树;安心贷;阿朋贷;有米贷', '蜂涌理财', '袋鼠妈妈', '花果金融;橙旗贷;中鼎国服;E人一铺', '水母云交易;云财经', '水母云交易', 'TradeMax;AL;（A', 'New', 'TradeMax', 'TradeMax;AL;（A', 'New', 'TradeMax', 'DEC;TOP.;ONE;TOP;TOP.ONE;TOP.ONEDEC', '瑞志企业公司', '重庆南岸', '重庆市吉悠', '星动亚洲;吉悠', '', '', '', '', '周转宝盒', '周转宝盒', '周转信箱', '周转信箱', '马上消金;马上消费', '教育贷;百度金融', '金汇;金汇国;珠海金创实业有限公司;金汇国际', '竹妃;天然工坊', 'YouBank', '上海两橙信息科技有限公司;跃吉科技;上海造艺网络科技有限公司;上海跃吉网络科技有限公司', '米花包;造艺科技;趣豆钱;豹子贷;猎钱宝', '银码头;豹子贷', '造艺科技;跃吉科技;两橙科技', '百行征信', '', '厚朴金控;普惠理财', '拓客来;中国莱信;莱信', 'IGOFX', 'IGOFX', '嘉丰瑞德', '鸿昇国际', '智汇魔方', '智汇魔方', '铸博皇御', '筑家在线', '筑家在线', '筑家在线', '天猫网购;天猫优品零售;天猫优品;天猫优品零售门店', '天猫优品;天猫优品零售', '咖啡之翼', '咖啡之翼', '咖啡之翼', '金易子;咖啡;元素;咖啡之翼', '家和盈;龙盈理财', '增盈;家和盈;增薪盈;龙盈理财', '普信金服', '普信金服', 'POFX', '小赢钱包', '建行龙支付;珍爱网', '麻袋财富;宜人贷;小赢理财;华泰证券;投哪网;微贷网;桔子理财;陆金所', '蓝晶社', '', '蓝晶社', '蓝晶社', '豹公仔', '蓝晶社', '蓝晶社;花生日记', '蓝晶社', '', '蓝晶社', '牧芽', '牧芽', '西安金控;通丝路', '中金珠宝', '卓润财经', '卓润财经', '卓润财经', '智诚安环;国信资产管理有限公司;沈阳嘉汇投资咨询有限公司;沈阳国信资产管理有限公司', '弘山财富', '弘山财富', '子龙文化链', '子龙文化链', '国金中融', '上海拓影', '省钱小宝;花生日记', '省钱小宝', '省钱小宝', '食物链;小宝', '省钱小宝', '恐龙时代;惠嘉金融;玖富钱包;小牛在线;小诺理财;惠嘉家装宝', '亿融普惠;亿融', '万里国际汽配城;财进别人袋', '钻石分期', '祈佑;云珠;祈星', '', '钻石分期', '', '钻石分期', '夏绿蒂', '钻石分期', '钻石分期', '小樱桃;上海序欢', '小樱桃', '火币网;福莱币FDC;以太币;福莱币', '陀螺财经;中联合创', '大河报;大河生活卡;华泰证券', '金猪下崽', '红杉资本;金猪下崽;金猪下载', '金猪下崽;金猪下载', '银猪;金猪', '微商火了;金猪下猪崽;金猪下崽;微信火', 'SUQA', 'SUQA;ASIC', '银豆网;亿邦国际', '盈宝通', '懒财网', '懒财网;懒财宝', '懒财网;懒财宝', '懒财网', '懒财宝;懒财网;宇驰瑞德', '中弘瑞鑫;青岛中天资产;天仁贸易;韬蕴资本', '中安百联', '懒财网;懒财宝', '懒财宝', '懒财所;懒财网', '同花顺', '同花顺', '雅虎链', '恒大币;幸运蛙;云联惠;爱心汇;大唐天下;绝世仙果;义国汇;视界链;顺八方;金源宝;欢乐城;钱结通', '京东酷卖', '借卖网;悟空单车', '优库速购;悟空单车', '梦想矿场;趣步链;倍富链;然猫', '立刷;立贷;嘉联立刷;嘉联支付', '河南万卡;POS;河南万卡支付', 'Plustoken', 'neironix;Plustoken;PlusToken', 'Plustoken', 'Plustoken;OKEx', '派派猪理财', '互金跟投', '安徽六安长源', '安徽六安长源置业', 'PPmoney;PPmoney网贷', 'PPmoney;PPmoney网贷', '招联好期贷;微粒贷', '淘钱宝', '堡垒投资', '堡垒投资', '堡垒投资', '瑞波币;以太坊;以太币', '比特币;以太币;领域王国;莱特币', '芒果金融', '芒果金融', '芒果金融', '芒果金融', '校园贷;尊安益财富;尊安益', '尊安益财富', '尊安益;尊安益财富', '鹰速润滑油经销有限公司', 'SERO', 'Pompliano;币世界', '币世界;EOS;证书宝;数联中国', 'HyperPay;HyperPa;HyperPay链', '甩甩宝宝', '甩甩宝宝', '甩甩宝宝', '甩宝宝;甩宝', '甩甩宝宝;甩宝', '焕商;焕呗', '焕商;焕呗', '焕商财富;焕呗易货;焕商;焕呗', '焕商;焕呗;焕呗易货', '焕商;焕呗', '海汇', '海汇', '海汇', '海汇', '海汇国际', '海汇国际;海汇', '海汇国际', '海汇', '海汇保险', '海汇国际', 'NAME;CHP城市猎人;CHP', 'CHP城市猎人', 'CHP城市猎人', '佳乐商城', 'plustoken;Plustoken;PlusToken', '比特币;NT', 'bitmex', '马克币;生态币', '滴滴出行', '', '裕吉国际mt4', '大東方国际商品交易集团;新富金融;恒通国际微交易;股王配资;鑫汇环球;众融众投;DBC币', 'tfyforex;震泰国际;中航期货', '恒信环球投资;恒信集团', 'svsfx;gzc创投', '', '比特币;多米诺', '芒果电单车', '云联惠;欧年宝;江苏联宝', '云联惠;欧年宝;江苏联宝', '时时彩', '德普凯信', '全球购', '夸客金融', '易通天下', '莱汇币;亚欧币;维卡币;GCB光彩币;比特币;万福币;暗黑币', '洋钱罐', '西安金控', '易通创客', '全球经济资讯', '天使投资', 'ca认证中心', '天世纪', '博创兴业', '吉祥币', '华军合创', '币付宝', '领峰外汇交易', 'yielan', '艾特币', 'xm信托', 'CFEX&LK', '艾拓思', '尚亚财富', '人人赚', '广汇莱茵庄园', 'CBT兄弟币;OBT欧比特', '全球购', '章鱼哥百亿', '福泽天下', '优凯集团', '', '哈啰顺风车', 'Jumo', '雷达币', '易到用车', '河北省金融租赁有限公司;河北金租', '我爱卡', '蜂蚁链', '吉鑫贷', 'POS;物联币', '万福币', '远大期货', '赚币网', '恒昌', '云数贸;五行币', '比特币;比特易', 'macd', '龙小云;masong', '易到', 'plustoken;火币otc', 'capstone凯石', 'creativeassembly;apex', 'DCRC币', 'followme;eightcap', 'plustoken;plustoken钱包;okex', 'rakuten乐天证券', 'SWIFT;zdnet', 'tri拓利', '安币交易所', '紫牛新闻', '彩云网', '臣要金', '', 'ICO', 'ICO', '吉汇时代', '亚太中心', '绿信集团', 'ggtrade金石集团;ggtrade金石', 'stdforex', 'svsfx', '中泰跨境全球购', 'Upbit;howmuch.net;币安', '嘉盛国际', '易通国际', '微交易;维币国际', '易信环球微交易', '邮政金融', '维文信tp世界;lgdisplay', 'realtimefutures', '筑金先生', '万和交易', 'mt4', 'mcc;mcc社区', '环球快讯', '凯特金融;ouxlimited(;金富国际金融;大赢家期货;恒信贵金属;真宝金融集团;春峰金融', '亚马逊', 'forexfs点cn', '维仕担保', 'CPLE币', '富鸿国际', '乐购商城;乐购', '汇能源', '利通国际期货', '威翰地产', 'GTS', '口袋外汇', '东方万汇城', '雷达币', 'mt4', '91管家;yoki', '青橙单车;首汽约车', '易票联;海豚号', '恩圣威NCY', 'cmb', 'ca国际金融互助社区', '首易信支付', 'ironfx', '中华币', '优尚乐购;优尚生活;全程猫', '中华币', '盈凯国际;昆仑国际', '诺和', '恺英网络', '嘉誉投资', '金十', '天汇金融', '湖北金融租赁;湖北消费金融', '比特世界', '富银融', '恒信环球投资', '雷达币', '聚汇天下', 'mtrading', '银达农村', '360金融', '', 'mt4', '福建盛世通宝网络科技有限公司', '趣游链;ieo币;信达国际;lgc莱格币;恒源国际', '彩虹学院', '51天天乐购', '智选天下', '69马克币', '紫石榴;华军合创', '广州瑞丰集团股份有限公司', '9m单车', '百川币', 'acl', 'afxgc外汇', 'aim', 'aitoken', 'algomaster', 'Android外汇交易宝;外汇交易宝', 'angelfx外汇交易商', 'apjfx', 'arnofx', 'asnfx', 'atfx', 'ATFX', 'AUS澳汇资本', 'becho', 'bedafx百达汇', 'bedrockforex', 'bfx', 'bitkeep', 'Bitmarket.', 'bmfn博美', 'bmfn博美外汇', 'brt房地产;brt自助售货', '', '上海融创', 'CB亚投行;CMB东盟国际', 'cmcmarkets', 'Copyright', '青岛鼎汇投资管理有限公司', 'ecntrade', 'ecn', 'egt;okex交易所', 'eightcap', 'excoin', 'f8coin', 'fclforex', '快乐葵', 'fomoso', 'Fowin', 'fxabm外汇', 'fxbtg金融集团', 'fxbtg', 'fxdeed', 'gaex盖世', '莱汇币;EGD网络黄金;万福币;GCB光彩币;暗黑币', 'GenesisVision', 'gpp高朋金融', 'gs小额信贷银行', 'gwfx金道环球外汇', 'IGOFX', 'JetProfit快盈', 'kng易投', 'manbetx', 'max', 'max', 'dc拆分盘;mbi拆分盘;mvc拆分盘;atm拆分盘;agk拆分盘;gtc拆分盘', 'mcc', 'megbrightfx', 'metatrader4;http', 'mxc', 'nordfx', 'OBT;欧比特', 'okcion;okex', 'okex', '奥美外汇', 'oxdfx牛津汇慧投资长', 'ptfx;jfx', 'PT金融理财', 'rebatesme海淘返利网', 'saxo盛宝', 'sds外汇', 'SGFX鼎展国际外汇', 'SGL', 'sms', 'tahoe泰浩', 'tbs外汇交易软件', 'tdc', 'tickmill', 'comex', 'TT互助盘', 'SITSDSUTL;V-COIN', 'wayne', 'markets', 'westarfx', 'wlfx', 'wlfx', '绿藤购;壹购物xfc;云企湘赢商城', 'yielan外汇', 'YOUBK;YouBank', 'Bakkt', '大猫财经;快鹿', 'plustoken', '比特币;币创交易所', 'AKRO;火币;ARRO;akro', '瑞波币;比特币;英雄;英雄链', 'zj盘', 'BE区块链;BE', 'ATGWORLD', '艾姆隆外汇', '艾拓思外汇', '艾拓思外汇', '安币anbi', '奥美otm', '澳洲trademax外汇', '澳洲百汇', '养老山庄', '百华环球', '奥弗国际', '百特国际微交易', '咪姐美物说;百臻堂', '宝泰金融', '', '鼎汇外汇', '北京嘉盛昌隆商贸有限公司', '北京亚太融合资本管理有限公司', '贝恩环球', '', '英皇金融国际', '泰康;泰康钻', '坤傲国际', '', '湖南快线文化传媒有限公司', '易到', '原油外汇投资网', '霸屏天下;团贷网', '雷达币', '比特兔交易所', '比特未来外汇', '比特亚洲', 'etf期货交易所', 'margintrading;bfx;币安;okex', 'Coinbase;币安', '币成', '币虎全球', '比特币;币王', '必达环宇', '中国外汇交易网', '大唐币', '天华金号微交易', '宝睿德;利客购', '财富地图', 'ant金服', '', '东航金融', '炒客网;chaoex', 'abcc', '聚汇天下', '华汇财富', 'sds', '传销币', '创富国际', '创富国际', 'BZX', '创鑫贷', '创鑫工艺', '创鑫', '创元世纪', '凯特币', '斑马快跑', '币创交易所', 'bitbank', 'ft', '乐视生态梦', '趣步', '奔驰smart', '坚固环球;MS坚固环球', '万汇', '亚星锚链', '通汇国际;大脸猫', '维卡币;马克币;百川币', '维卡币;马克币;百川币', '大鑫金融', 'e租宝;福源币', 'tbc', 'D-CLUB汇吧', 'Ripple;XRP', 'globalcoin', '得来惠', '德维尔外汇', '', '', '', 'HuaweiPay', '蒂克币', '点点汇', '点点啦', '点点啦', '方浩外汇', '鼎丰国际娱乐城', '鼎汇国际;鼎汇外汇', '鼎汇金融', '聚万汇', '玩客币', '币天下', '恩圣威(NCY', '恩圣威外汇', '赫尔币', 'qa量化机器人;qa机器人', '天华创客购', 'cardiff', 'e投睿etoro', 'fxmiso寰星国际', 'kingsida金仕达外汇', 'mt4外汇交易', '大通金融集团', '点滴汇', '鼎汇钱包', '启点外汇交易', '华硒时代', 'BFS牛汇', '黄金短线;万世吉短线', 'xness易;ogh外汇保障;ogh外汇保', '澳瑞克;O外汇', '万致外汇交易;万致外汇', 'fxbtg大旗金融', '嘉盛”国际投资', 'Snrcfx鼎汇（鼎匯', '汇聊', '环球松鼠', '诺德股份', '智选天下', '智选天下', '发好啦网;YD国际期货', '', '悟空单车', '必火币', 'mex', '凤凰彩票', '福汇', '富邦财富', '大唐币;百川币', 'tbc天宝币', '港宏国际', '高达金融外汇', '高力国际', '', '国盛金业', '', 'bg币', '众汇盈', 'jhfore', '卓越外汇;佰利安', 'LongAsia长亚', '易通;易通共享商城', '广州市创鑫软件科技有限公司', '越秀金控', '7号网', 'akindred外汇', '艾拓思;ZC', '艾拓思;ZC', '亿欧网;互贷网', 'tbc国际外汇', '', 'tri', '乐币', '国付宝信息科技有限公司;创富国际有限公司', 'mcc', '微投宝;银天下;投教宝', '微投宝;mt4;投教宝', 'mt4;全民赚钱宝;微投宝;银天下;蚂蚁易购;投教宝', '亚欧币', '亚欧币', '', '首汽约车', 'gaex', '黄金外汇原油）', '河南云之梦网络科技有限公司', 'ruax', '宏禄投资', '7号网;零零购', '7号网;零零购', '环球财通微交易', '环球国际外汇交易中心', 'BOLL通道', '牛拜单车', '牛拜单车', '钱站', 'mcc', '灵主', '米切尔', '斐讯0元购', 'cmb', '汇福;HFGroup', '汇金智能交易', '汇通外汇', '汇鑫富交易', '1Broker', '汇信环球', '汇信原引', 'COMEX', '前海旗隆', '汇星人', '汇兴智业', '汇赢国际微交易', '汇智达投资管理有限公司', '易通商城', '币虎全球交易所', '激石外汇', 'ca互助盘', '加的夫(', '嘉瑞基外汇', '嘉盛财富', '嘉盛外汇', '嘉盛外汇', '嘉盛', 'BLMarkets', '减产派', 'KAK', '恒信国际外汇', '优资;沃客', '凤凰币', '博邦商城', '云联惠', '激石集团;激石', '建信金融租赁有限公司', '世纪金融', '', 'SFA超级理财师', '比特派', '金帛投资', '金道诚外汇', '金富国际金融', '鑫汇国际', '金远地产', '善心汇', '汇鼎国际', 'TOSKY;天汇金融', 'newsolid', '安邦基金;安邦保险;安邦保险集团;安邦资产管理公司', '绿大地事件;航天通信;万福生科案;中科云网', '宗易通', '环球国际金融', '嘉胜国际', 'gs-forex', 'GAGFX金石外汇', '友邦外汇', 'DMI;北大青鸟', '香港英皇集团', '东盟', '币王', '久久外汇', '久久外汇;久久环球', 'ICO', '汇盈通期权', '钜富外汇', '神仙理财;比特易', '火币;Facebook', '万福币', '福布币', '天津泰达投资控股;津联集团;天津泰达集团', '比特币;波场', '云数贸联盟;云讯通', '币贝（', 'ftc(金信链', '聚赢宝', '开汇国际', 'hdi', '康养链', '康正汽车', 'chase;prime', '美股操盘宝', '英皇', '口袋贵金属', 'hpoption;快乐期权;hpop', '币王宝座', 'DASH-M;PureBit', '莱福币', '金银油', '老虎汇', '正荣地产;乐居', '永安林业;乐居财经', '雷达币', '雷达币', '新湖财富', '微客谷', '趣购购物', '链派', '零零购', 'fxopen', '亨达外汇', '比特易', 'fxcm福汇', '益链', '银亚国际', '马克币', '曼尼国际', '玫瑰石外汇', 'amp安普国际外汇', 'cboe交易所;cme', '摩登', '德孝中华', '韩王金融帝国', 'mxc交易所', '莱汇币', '押金骑', '51数字资产', 'okex', '启航', 'y-zg', '牛津汇', '纽卡斯金融外汇;纽卡斯外汇', '诺德', '诺德外汇', '诺亚财富n;诺亚财富', 'jpg(;女人币', '拍拍贷', '中科汇通', '聚英堂', '', '联准国际', '丰财网;深圳智本', '普罗汇外汇', '天汇金融期货;cnEIpkki', '稳定', '', 'Mandy曼地', 'fxbtg大旗金融集团', 'gmi外汇', 'l匀加速商城', '先汇国际', '中进大宗', '中澳控股集团有限公司', 'mcc', '快捷币', '云耕云牧', '金汇宝', '贵金属投资', '薪付宝', '普罗米集团', '千禧外汇', '五行币', '鼎汇', '艾利威外汇', '智车芯', '好望角', '云联惠;全返通', '嘉品乐购', '全球购', 'SFA超级理财师', 'plus', 'rdcfx', '信达利外汇', '荣亘环球', '超华科技;大智慧;金亚科技', '外汇黄金小助手', '软银中国投', '瑞银国际外汇', 'iforex外汇交易有限公司', '三立集团', 'AirBitClub;traxalt;bitfoliex;AirBitCl', '全球购;全球卖', '哒哒乐购', '山西华嘉盛房地产开发集团有限公司', '', '大连期货交易所', '上投摩根', 'BNB;币王', '百华环球', '尚汇国际', '奢汇金融', '沈阳博元投资', '盛鑫投资', '世纪金融', '鱼宝', 'tbc', 'icc', '易到', 'cnex', '首域微交易', 'XBEX菲比特', 'ggtrade', 'BUC;丘比特;BitUN', '恩圣威微交易', '金富国际', '雷达币', '天汇金融', '易到', '', 'amp', '易到', '坚固环球', '云网币', '摩拜单车', '天汇金融', '天津华尔亚汇', '天津赛象融通', '天天兑', '天添薪', 'ptfx', '通通理财', '中瑞财讯', '财富币', 'zepa征普', '交易网;618外汇网', 'foreignexchangealliancesystem;fxas', 'FXCM途鑫国际', '维森证券', '外汇天眼;广州粤泰集团股份有限公司;粤泰股份', '火币', '万盈国际微交易', '韩越金融', '优拜单车', '', '潍坊家林外汇交易员', '未来东方金融', 'aetos外汇', '问鼎外汇世界杯', '昆仑国际微交易', '富通环球投资', 'alpari爱福瑞;alpari爱福瑞国际', '叮咚钱包', '无忧网', '西部金融', 'phoenix', '希尔交易;Lucas', '希尔链', '熙伦', '暗黑币', '香港國際', 'pian', '先汇国际', '先汇国际外汇', 'ico', '长颈鹿', 'ant蚂蚁链', '开普币', 'witi', '科创普惠', '汇信行', '长沙阳光;博才阳光;湖南芒果财富', '币精灵(fairycoin);币精灵(fairycoin', '摩尔币', '淘丫丫', '聚汇天下;大唐天下', 'gs游戏理财系统', '雷达币', '众和乐购', '人人公益商城', '新瑞币', '北大青鸟', '创富国际', 'ausforex', '鑫融街', '商易通', '信鑫投资', '星融财富', 'SLC奇点币', '亨达外汇', '圣克莱蒙特', 'usg', '英雄链;太空链;okex', '优悦币', '艾拓思', 'scm（;龙拓', 'CWIOS币;CWIOS', '宜汇国际SGL', '天地自然', '比特币', '', 'acetop', '万商惠', '海外投资;海外资产', '义隆金融', '易信', '易达币', '易到回应', '易到', '易到实控人', '易到', '易富外汇', '易信维权', '兴亚币', 'K-merchant;Karat;Karatbit', 'svsfx', '', '英皇宝', '英皇宝微交易', '英皇', '英皇金融;英皇', 'scm;eight-element', '尊汇', '四川浩元恒达实业集团有限公司', '金比特(JBT)', 'okex交易所', '澳洲百汇', '红盾网;pos机', '吉利集团', '迅雷玩客币;玩客币', 'hcoin', '广东再担保', '拍拍贷;宜人贷;圣盈信', 'smartmarkets', '宇汇国际网', '玉米财富币', '远大期货', '远大期货', '远大期货', '', '云耕云牧;云联牧场', '华汇保险', '云梦生活', '云联惠;云数贸;云讯通;丰果游天下;MGN积分宝;GemCoin;五行币;善心汇;易赚宝;赛比安', '匀加速', '雷达币', 'cmb', '锦程消费金融;乐居贷', 'morgan', 'RCIF中舜国际外汇', '汇盈通', '狮子衍生品', '南安农行', 'mcc', '兴业市场', 'ico时代', '银亚国际', '铂略金融', '全返通', '', '中金交易', '马克币', '今日盈', '艾特币ATC', '长亚集团', 'mcc', '骑电单车', 'ea邦', '', '银达信息技术（北京）有限公司', '云数贸', '', '如圣盈信', 'dcoin', '链网', '浙江温州李山集团', 'FXTechstrategyTeam', 'unibank', '国际外汇交易;随时', '易方达瑞财', '芝麻外汇', '光彩币', '链克;玩客币', 'mcc', '智养链', '恩特拉能源', 'exx', '聚汇天下', '黄金坑;西部创业', '盛宝银行（saxo）', '', '易到', '中金公司(cicc', '中瑞财讯', '环宇国际微交易', '种子币', '众股网', 'teletrade', 'ZJLT', '凯德集团;链家置地', '雷达币', '资亿宝', '艾姆隆', '优品全球购', '盈佳国际', '火币网;OKEX', '锦州启航;一键呼', 'ing', 'rnsfx', '易智堂']
+precision: 0.5720496894409938, recall 0.4779449922158796, f1 0.5207803223070399
+dev set : step_8012,precision_0.5720496894409938,recall_0.4779449922158796
+5it [00:10,  2.15s/it]
+Process finished with exit code -1
